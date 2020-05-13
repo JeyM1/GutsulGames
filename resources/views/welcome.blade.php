@@ -2,5 +2,5 @@
 
 
 @section('content')
-    adsjknadsjkn
+    asd
 @endsection
