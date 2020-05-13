@@ -1,6 +1,30 @@
 * {
   box-sizing: border-box;
 }
+.bg_dark {
+  background-color: #454955;
+}
+.bg_purple {
+  background-color: #9085E3;
+}
+.text_white {
+  color: white;
+}
+.text_purple {
+  color: #9085E3;
+}
+.content_block {
+  padding: 40px 20px;
+}
+.font_17 {
+  font-size: 17px;
+}
+.font_20 {
+  font-size: 20px;
+}
+.font_25 {
+  font-size: 25px ;
+}
 body {
   font-family: 'Raleway';
   font-weight: 600;
@@ -39,14 +63,47 @@ a:hover {
   display: inline-block;
   text-align: center;
   border: 2px solid #9085E3;
-  width: 115px !important;
-  font-size: 17px;
   padding: 5px 0 !important;
   border-radius: 30px;
 }
 #login {
+  width: 115px;
   background-color: #9085E3;
 }
 #register {
+  width: 115px;
   background-color: #454955;
+}
+#main_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 78px);
+  background-image: url(/images/first.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#main_page div a {
+  font-size: 25px;
+  color: #FFE500;
+  background-color: #24235E;
+  border-color: #FFE500;
+  width: 304px;
+  padding: 15px 0 !important;
+  border-radius: 50px;
+}
+.main_text {
+  font-size: 26px;
+  color: white;
+  text-align: center;
+}
+.button_filled {
+  background-color: #9085E3;
+  padding: 10px 50px !important;
+}
+#why_us {
+  font-size: 40px;
+  text-align: center;
+  color: white;
 }

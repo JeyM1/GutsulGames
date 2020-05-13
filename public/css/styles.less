@@ -5,6 +5,38 @@
     box-sizing: border-box;
 }
 
+.bg_dark {
+    background-color: @color_bg;
+}
+
+.bg_purple {
+    background-color: @color_purple;
+}
+
+.text_white{
+    color: white;
+}
+
+.text_purple{
+    color: @color_purple;
+}
+
+.content_block{
+    padding: 40px 20px;
+}
+
+.font_17{
+    font-size: 17px;
+}
+
+.font_20{
+    font-size: 20px;
+}
+
+.font_25{
+    font-size: 25px ;
+}
+
 body {
     font-family: 'Raleway';
     font-weight: 600;
@@ -46,16 +78,55 @@ a, a:visited, a:hover{
     display: inline-block;
     text-align: center;
     border: 2px solid @color_purple;
-    width: 115px !important;
-    font-size: 17px;
     padding: 5px 0 !important;
     border-radius: 30px;
 }
 
 #login {
+    width: 115px;
     background-color: @color_purple;
 }
 
 #register {
+    width: 115px;
     background-color: @color_bg;
+}
+
+#main_page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 78px);
+    background-image: url(/images/first.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    div {
+        a {
+            font-size: 25px;
+            color: #FFE500;
+            background-color: #24235E;
+            border-color: #FFE500;
+            width: 304px;
+            padding: 15px 0 !important;
+            border-radius: 50px;
+        }
+    }
+}
+
+.main_text{
+    font-size: 26px;
+    color: white;
+    text-align: center;
+}
+
+.button_filled{
+    background-color: @color_purple;
+    padding: 10px 50px !important;
+}
+
+#why_us{
+    font-size: 40px;
+    text-align: center;
+    color: white;
 }
