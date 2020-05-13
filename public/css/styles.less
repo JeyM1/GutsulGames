@@ -1,0 +1,61 @@
+@color_purple:#9085E3;
+@color_bg:#454955;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway';
+    font-weight: 600;
+    font-size: 30px;
+}
+
+a, a:visited, a:hover{
+    color: white;
+    text-decoration: none !important;
+}
+
+.header {
+    height: 78px !important;
+    background-color: @color_bg !important;
+    ul {
+        display: inline-block;
+        width: 250px;
+        a {
+            margin-top: 7px;
+            font-size: 17px;
+        }
+    }
+}
+
+.logo {
+    margin-right: 50px !important;
+    color: #FFE500 !important;
+    font-size: 35px !important;
+}
+
+.login {
+    background-color: @color_purple;
+    a {
+        font-size: 17px;
+    }
+}
+
+.button_main {
+    display: inline-block;
+    text-align: center;
+    border: 2px solid @color_purple;
+    width: 115px !important;
+    font-size: 17px;
+    padding: 5px 0 !important;
+    border-radius: 30px;
+}
+
+#login {
+    background-color: @color_purple;
+}
+
+#register {
+    background-color: @color_bg;
+}

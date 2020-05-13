@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Raleway';
+  font-weight: 600;
+  font-size: 30px;
+}
+a,
+a:visited,
+a:hover {
+  color: white;
+  text-decoration: none !important;
+}
+.header {
+  height: 78px !important;
+  background-color: #454955 !important;
+}
+.header ul {
+  display: inline-block;
+  width: 250px;
+}
+.header ul a {
+  margin-top: 7px;
+  font-size: 17px;
+}
+.logo {
+  margin-right: 50px !important;
+  color: #FFE500 !important;
+  font-size: 35px !important;
+}
+.login {
+  background-color: #9085E3;
+}
+.login a {
+  font-size: 17px;
+}
+.button_main {
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #9085E3;
+  width: 115px !important;
+  font-size: 17px;
+  padding: 5px 0 !important;
+  border-radius: 30px;
+}
+#login {
+  background-color: #9085E3;
+}
+#register {
+  background-color: #454955;
+}

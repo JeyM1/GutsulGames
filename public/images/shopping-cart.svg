@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.071" height="18.273" viewBox="0 0 19.071 18.273">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #9085e3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.5px;
+      }
+    </style>
+  </defs>
+  <g id="Icon_feather-shopping-cart" data-name="Icon feather-shopping-cart" transform="translate(-0.75 -0.75)">
+    <path id="Path_1" data-name="Path 1" class="cls-1" d="M13.6,30.8a.8.8,0,1,1-.8-.8A.8.8,0,0,1,13.6,30.8Z" transform="translate(-4.909 -13.325)"/>
+    <path id="Path_2" data-name="Path 2" class="cls-1" d="M30.1,30.8a.8.8,0,1,1-.8-.8A.8.8,0,0,1,30.1,30.8Z" transform="translate(-12.623 -13.325)"/>
+    <path id="Path_3" data-name="Path 3" class="cls-1" d="M1.5,1.5H4.695L6.835,12.195a1.6,1.6,0,0,0,1.6,1.286H16.2a1.6,1.6,0,0,0,1.6-1.286l1.278-6.7H5.494" transform="translate(0 0)"/>
+  </g>
+</svg>
