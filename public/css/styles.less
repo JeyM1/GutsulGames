@@ -6,15 +6,15 @@
 }
 
 .bg_dark {
-    background-color: @color_bg;
+    background-color: @color_bg !important;
 }
 
 .bg_purple {
-    background-color: @color_purple;
+    background-color: @color_purple !important;
 }
 
 .bg_black{
-    background-color: #1C1C1C;
+    background-color: #1C1C1C !important;
 }
 
 .text_white{
@@ -35,6 +35,10 @@
 
 .text_align_right{
     text-align: right !important;
+}
+
+.text_bold{
+    font-weight: 800;
 }
 
 .content_block{
@@ -91,13 +95,13 @@ a, a:visited, a:hover{
 .header {
     height: 78px !important;
     background-color: @color_bg !important;
-    ul {
-        display: inline-block;
-        width: 250px;
-        a {
-            margin-top: 7px;
-            font-size: 17px;
-        }
+}
+
+.header_links{
+    width: 250px;
+    a {
+        margin-top: 7px;
+        font-size: 17px;
     }
 }
 
@@ -160,32 +164,32 @@ a, a:visited, a:hover{
     }
 }
 
-.main_text{
+.main_text {
     font-size: 26px;
     color: white;
     text-align: center;
     margin: 0 0 20px;
 }
 
-.button_filled{
+.button_filled {
     background-color: @color_purple;
     padding: 10px 50px !important;
 }
 
-#why_us{
+#why_us {
     font-size: 40px;
     text-align: center;
     color: white;
 }
 
-.game_text{
+.game_text {
     font-size: 20px;
     color: white;
     text-align: left;
     margin: 0 0 10px;
 }
 
-.button_register{
+.button_register {
     font-size: 17px;
     background-color: #24235E;
     border-color: #FFE500;
@@ -193,7 +197,7 @@ a, a:visited, a:hover{
     border-radius: 50px;
 }
 
-.button_mail{
+.button_mail {
     text-align: left;
     font-size: 17px;
     background-color: #24235E;
@@ -201,12 +205,30 @@ a, a:visited, a:hover{
     border-radius: 50px;
 }
 
-.icon_footer{
+.icon_footer {
     margin-top: 10px;
     height: 29px;
     width: 29px;
 }
 
-.no_margin{
+.no_margin {
     margin: 0 !important;
+}
+
+.form_search{
+    border: 3px solid @color_purple;
+    border-radius: 30px;
+    padding: 10px 15px 10px 10px;
+    input {
+        border: none;
+        background-color: transparent;
+        color: white;
+        outline: none;
+        margin-left: 5px;
+    }
+}
+
+.button_search {
+    background-color: transparent;
+    border: none;
 }
