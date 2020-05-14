@@ -8,7 +8,7 @@
         <p class="main_text text_purple font_25">Вхід в особистий кабінет</p>
         <div class="col-md-12 col-xs-12 d-flex justify-content-center flex-column padding_bottom_20">
             <form class="form_login" action="">
-                <input class="input_login" type="text" placeholder="Ім'я користувача або пошта:">
+                <input class="input_login" type="email" placeholder="Електронна пошта користувача:">
                 <div class="padding_bottom_20">
                     <input class="input_login" type="password" placeholder="Пароль:">
                     <a class="main_text float-right font_14" href="">
