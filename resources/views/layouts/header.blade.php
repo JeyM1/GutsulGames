@@ -15,7 +15,15 @@
                 <div class="nav-item d-inline-flex">
                     <a class="nav-link" href="#">Про нас</a>
                 </div>
-                <div class="d-inline-flex  align-self-end">
+                <div>
+                    <a href="#">
+                        <img src="./images/shopping-cart.svg">
+                    </a>
+                    <a href="#">
+                        <img src="./images/search.svg">
+                    </a>
+                </div>
+                <div style="margin-left: auto" class="d-inline-flex  align-self-end">
                     <a class="button_main" id="login" href="#">Логін</a>
                 </div>
                 <div class="d-inline-flex  align-self-end">
@@ -34,14 +42,7 @@
                     <a class="nav-link" href="#">Про нас</a>
                 </div>
             </div>
-            <div>
-                <a href="#">
-                    <img src="./images/shopping-cart.svg">
-                </a>
-                <a href="#">
-                    <img src="./images/search.svg">
-                </a>
-            </div>
+            
             <div class="d-flex col-sm-4 justify-content-between">
                 
             </div>-->
