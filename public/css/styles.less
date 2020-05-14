@@ -1,5 +1,6 @@
 @color_purple:#9085E3;
 @color_bg:#454955;
+@color_black: #1C1C1C;
 
 * {
     box-sizing: border-box;
@@ -14,7 +15,7 @@
 }
 
 .bg_black{
-    background-color: #1C1C1C !important;
+    background-color: @color_black !important;
 }
 
 .text_white{
@@ -45,6 +46,10 @@
     padding: 40px 20px;
 }
 
+.font_14{
+    font-size: 14px !important;
+}
+
 .font_17{
     font-size: 17px !important;
 }
@@ -59,6 +64,14 @@
 
 .font_30{
     font-size: 30px !important;
+}
+
+.font_40{
+    font-size: 40px !important;
+}
+
+.margin_none{
+    margin: 0 !important;
 }
 
 .padding_none{
@@ -77,9 +90,26 @@
     padding-bottom: 35px;
 }
 
+.padding_login{
+    width: 100%;
+    padding: 0 15px 30px 15px;
+}
+
+.border_radius_10{
+    border-radius: 10px !important;
+}
+
 .image_full_width{
     width: 250px;
     height: auto;
+}
+
+.full_width{
+    width: 100%;
+}
+
+.width_80{
+    width: 80%;
 }
 
 .width_200px{
@@ -169,6 +199,17 @@ a, a:visited, a:hover{
     }
 }
 
+#login_page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(~"100vh - 78px");
+    background-image: url(/images/first.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .main_text {
     font-size: 26px;
     color: white;
@@ -241,7 +282,47 @@ a, a:visited, a:hover{
     }
 }
 
+.justify_content_end_notimportent{
+    justify-content: flex-end;
+}
+
+.center_after_610px{
+    @media (max-width: 609px){
+        justify-content: center !important;
+    }
+}
+
 .button_search {
     background-color: transparent;
     border: none;
+}
+
+.login_bg{
+    background-color: @color_bg;
+    border-radius: 50px;
+    padding: 20px;
+}
+
+.input_login{
+    border: 1px solid @color_purple;
+    .border_radius_10;
+    background-color: @color_purple;
+    color: white;
+    width: 100%;
+    outline: none;
+    padding: 10px 5px;
+}
+
+.form_login{
+    width: 100%;
+    background-color: transparent;
+    border: 3px solid transparent;
+    .border_radius_10;
+    padding: 10px 16px 10px 10px;
+    ::placeholder{
+        color: white;
+    }
+    >input{
+        margin-bottom: 20px;
+    }
 }

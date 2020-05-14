@@ -31,6 +31,9 @@
 .content_block {
   padding: 40px 20px;
 }
+.font_14 {
+  font-size: 14px !important;
+}
 .font_17 {
   font-size: 17px !important;
 }
@@ -42,6 +45,12 @@
 }
 .font_30 {
   font-size: 30px !important;
+}
+.font_40 {
+  font-size: 40px !important;
+}
+.margin_none {
+  margin: 0 !important;
 }
 .padding_none {
   padding: 0 !important;
@@ -55,9 +64,22 @@
 .padding_bottom_30 {
   padding-bottom: 35px;
 }
+.padding_login {
+  width: 100%;
+  padding: 0 15px 30px 15px;
+}
+.border_radius_10 {
+  border-radius: 10px !important;
+}
 .image_full_width {
   width: 250px;
   height: auto;
+}
+.full_width {
+  width: 100%;
+}
+.width_80 {
+  width: 80%;
 }
 .width_200px {
   width: 220px;
@@ -134,6 +156,16 @@ a:hover {
   padding: 15px 0 !important;
   border-radius: 50px;
 }
+#login_page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 78px);
+  background-image: url(/images/first.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .main_text {
   font-size: 26px;
   color: white;
@@ -198,7 +230,42 @@ a:hover {
   outline: none;
   margin-left: 5px;
 }
+.justify_content_end_notimportent {
+  justify-content: flex-end;
+}
+@media (max-width: 609px) {
+  .center_after_610px {
+    justify-content: center !important;
+  }
+}
 .button_search {
   background-color: transparent;
   border: none;
+}
+.login_bg {
+  background-color: #454955;
+  border-radius: 50px;
+  padding: 20px;
+}
+.input_login {
+  border: 1px solid #9085E3;
+  border-radius: 10px !important;
+  background-color: #9085E3;
+  color: white;
+  width: 100%;
+  outline: none;
+  padding: 10px 5px;
+}
+.form_login {
+  width: 100%;
+  background-color: transparent;
+  border: 3px solid transparent;
+  border-radius: 10px !important;
+  padding: 10px 16px 10px 10px;
+}
+.form_login ::placeholder {
+  color: white;
+}
+.form_login > input {
+  margin-bottom: 20px;
 }
