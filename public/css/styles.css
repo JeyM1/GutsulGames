@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+.spacer {
+  margin: auto;
+}
 .bg_dark {
   background-color: #454955 !important;
 }
@@ -115,6 +118,13 @@ a:hover {
   color: #FFE500 !important;
   font-size: 35px !important;
   margin: 0;
+}
+.nav-icons {
+  height: fit-content;
+}
+.nav-icons > a {
+  margin: 0px 5px;
+  height: fit-content;
 }
 .login {
   background-color: #9085E3;
