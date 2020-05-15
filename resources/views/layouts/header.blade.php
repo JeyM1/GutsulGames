@@ -89,13 +89,30 @@
                     </a>
                 </div>
                 <div class="d-none d-xl-flex">
-                    <div class="spacer"></div>
-                    <div style="margin-right: 15px">
-                        <a class="button_main font_17" id="login" href="#">Логін</a>
-                    </div>
-                    <div>
-                        <a class="button_main font_17" id="register" href="#">Реєстрація</a>
-                    </div>
+                    @guest
+                        <div style="margin-right: 15px">
+                            <a class="button_main font_17" id="login" href="{{ route('login') }}">Логін</a>
+                        </div>
+                        <div>
+                            <a class="button_main font_17" id="register" href="{{ route('register') }}">Реєстрація</a>
+                        </div>
+                    @else
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    @endguest
                 </div>
             </div>
         </div>

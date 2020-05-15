@@ -28,7 +28,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <a class="main_text float-right font_14" href="">
+                    <a class="main_text float-right font_14" href="{{ route('password.request') }}">
                         Забули пароль?
                     </a>
                 </div>
