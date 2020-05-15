@@ -49,14 +49,36 @@
 .font_30 {
   font-size: 30px !important;
 }
+@media (max-width: 768px) {
+  .font_30 {
+    font-size: 20px !important;
+  }
+}
+@media (max-width: 576px) {
+  .font_30 {
+    font-size: 15px !important;
+  }
+}
 .font_40 {
   font-size: 40px !important;
 }
 .margin_none {
   margin: 0 !important;
 }
+.margin_bottom_20 {
+  margin: 0 0 20px 0 !important;
+}
 .padding_none {
   padding: 0 !important;
+}
+.padding_right_10 {
+  padding-right: 10px;
+}
+.padding_left_10 {
+  padding-left: 10px;
+}
+.padding_top_5 {
+  padding-top: 5px;
 }
 .padding_top_10 {
   padding-top: 10px;
@@ -73,6 +95,16 @@
 }
 .border_radius_10 {
   border-radius: 10px !important;
+}
+.image_width_370 {
+  width: 370px;
+  height: auto;
+}
+@media (max-width: 576px) {
+  .image_width_370 {
+    width: 320px;
+    height: auto;
+  }
 }
 .image_full_width {
   width: 250px;
@@ -243,6 +275,9 @@ a:hover {
 .justify_content_end_notimportent {
   justify-content: flex-end;
 }
+.justify_content_between_notimportent {
+  justify-content: space-between;
+}
 @media (max-width: 609px) {
   .center_after_610px {
     justify-content: center !important;
@@ -278,4 +313,49 @@ a:hover {
 }
 .form_login > input {
   margin-bottom: 20px;
+}
+/*.flag{
+    width: 20px;
+    height: 20px;
+}*/
+input[type=checkbox] {
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  cursor: pointer;
+}
+input[type=checkbox]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  border: 2px solid #9085E3;
+  border-radius: 2px;
+  background-color: #9085E3;
+}
+input[type=checkbox]:checked:after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2.5px 2.5px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 3px;
+  left: 7px;
+}
+.button_buy {
+  padding: 5px 25px !important;
+}
+.line {
+  height: 1px;
+  background-color: #9085E3;
+  margin: 20px 0;
 }
