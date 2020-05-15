@@ -82,10 +82,10 @@
                 </div>
                 <div class="nav-icons d-inline-flex">
                     <a href="#">
-                        <img src="./images/shopping-cart.svg">
+                        <img src="/images/shopping-cart.svg">
                     </a>
                     <a href="#">
-                        <img src="./images/search.svg">
+                        <img src="/images/search.svg">
                     </a>
                 </div>
                 <div class="d-none d-xl-flex">
