@@ -21,7 +21,7 @@
                         </div>
                         <div class="d-flex justify-content-start flex-column">
                             <p class="main_text padding_left_10 text_align_left text_purple font_25">
-                                LevelHead
+                                {{ $gamename }}
                             </p>
                             <p class="main_text padding_left_10 text_align_left font_17">
                                 Будуйте неймовірні пристрої та штуковини, створюйте пригоди, для 

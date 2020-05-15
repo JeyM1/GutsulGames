@@ -1,77 +1,30 @@
 @extends('layouts.app')
 
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<div id="login_page">
+    <div class="d-flex justify-content-center align-items-center flex-column login_bg">
+        <p class="logo2 padding_top_10">Gutsul Games</p>
+        <p class="main_text text_purple font_25">Реєстрація</p>
+        <div class="col-md-12 col-xs-12 d-flex justify-content-center flex-column padding_bottom_20">
+            <form class="form_login" action="">
+                <input class="input_login" type="email" placeholder="Електронна пошта:">
+                <input class="input_login" type="text" placeholder="Нікнейм:">
+                <div class="padding_bottom_30">
+                    <input class="input_login" type="password" placeholder="Пароль:">
+                    <div class="d-flex align-items-center padding_top_10">
+                        <input class="flag" type="checkbox" name="a">
+                        <p class="main_text margin_none float-left font_14 padding_left_10 padding_right_10">
+                            Я прочитав (-ла) та приймаю умови використання
+                        </p>
+                    </div>
                 </div>
-            </div>
+                <button type="submit" class="button_main button_filled text_white font_17 full_width border_radius_10" href="">
+                    Створити обліковий запис
+                </button>
+            </form>
         </div>
     </div>
 </div>
+
 @endsection

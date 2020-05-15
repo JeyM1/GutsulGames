@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row bg_black justify-content-center">
             <div class="content_block col-md-10 col-xs-12">
-                <p class="main_text text_purple text_bold font_40">НІКНЕЙМ</p>
+                <p class="main_text text_purple text_bold font_40">{{$username}}</p>
                 <p class="main_text text_purple text_bold font_40 padding_left_10 text_align_left">Придбані ігри:</p>
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-between flex-wrap">
