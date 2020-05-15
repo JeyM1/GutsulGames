@@ -23,5 +23,9 @@ Route::get('/users/{user}', 'MainController@users');
 Route::get('/games/{game}', 'MainController@games');
 Route::get('/checkout', 'MainController@checkout');
 
+Route::get('/testuser', function() {
+    return view('home');
+});
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
