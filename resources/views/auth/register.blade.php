@@ -45,7 +45,10 @@
                 <div class="d-flex align-items-center padding_top_10 padding_bottom_30">
                     <input class="flag" type="checkbox" name="a" required>
                     <p class="main_text margin_none float-left font_14 padding_left_10 padding_right_10">
-                        Я прочитав (-ла) та приймаю умови використання
+                        Я прочитав (-ла) та приймаю 
+                        <a href="">
+                            <u>умови використання</u>
+                        </a>
                     </p>
                 </div>
 
