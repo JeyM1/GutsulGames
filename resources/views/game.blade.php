@@ -17,34 +17,46 @@
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-center justify-content-xl-start flex-wrap flex-xl-nowrap">
                         <div class="d-flex align-items-center justify-content-center game">
-                            <img class="padding_bottom_20 image_width_370" src="/images/games/14.png">
+                            <img class="padding_bottom_20 image_width_370" src="{{ $game->image_path }}">
                         </div>
                         <div class="d-flex justify-content-start flex-column">
                             <p class="main_text padding_left_10 text_align_left text_purple font_25">
-                                {{ $gamename }}
+                                {{ $game->name }}
                             </p>
                             <p class="main_text padding_left_10 text_align_left font_17">
-                                Будуйте неймовірні пристрої та штуковини, створюйте пригоди, для 
-                                яких потрібні і мізки, і реакція, або просто робіть рівні з приємною 
-                                музикою для відпочинку інших співробітників. А потім діліться своїми 
-                                рівнями з іншими гравцями і набирайте фан-базу! У відділі Levelhead 
-                                є потужна система підписок і відбору рівнів, так що кращі нові твори 
-                                ваших колег не пройдуть повз вас.
+                                {{ $game->description }}
                             </p>
+                            @isset($game->developer)
+                                <p class="main_text padding_left_10 text_align_left font_20">
+                                    <span class="text_purple">Розробник:</span> {{ $game->developer }} 
+                                </p>
+                            @endisset
+                            @isset($game->publisher)
+                                <p class="main_text padding_left_10 text_align_left font_20">
+                                    <span class="text_purple">Видавець:</span> {{ $game->publisher }} 
+                                </p>
+                            @endisset
+                            @isset($game->release_date)
+                                <p class="main_text padding_left_10 text_align_left font_20">
+                                    <!--<span class="text_purple">Дата виходу:</span> {{ Carbon\Carbon::parse($game->release_date)->formatLocalized("%d %B %Y") }}-->
+                                    <span class="text_purple">Дата виходу:</span> {{ date('j F Y', strtotime($game->release_date)) }}
+                                </p>
+                            @endisset
+                            
                             <p class="main_text padding_left_10 text_align_left font_20">
-                                <span class="text_purple">Розробник:</span> Butterscotch Shenanigans 
-                            </p>
-                            <p class="main_text padding_left_10 text_align_left font_20">
-                                <span class="text_purple">Видавець:</span> Butterscotch Shenanigans 
-                            </p>
-                            <p class="main_text padding_left_10 text_align_left font_20">
-                                <span class="text_purple">Дата виходу:</span> 30 квітня 2020р. 
-                            </p>
-                            <p class="main_text padding_left_10 text_align_left font_20">
-                                <span class="text_purple">ЦІНА:</span> 500 ₴
+                                <span class="text_purple">ЦІНА:</span> {{ $game->price }} ₴
                             </p>
                             <div class="d-flex justify-content-start padding_left_10">
-                                <a class="button_main button_buy font_20" href="">Придбати зараз</a>
+                                @guest
+                                    <a class="button_main button_buy font_20" href="{{ route('register') }}">Зареєструйтеся та грайте!</a>
+                                @else
+                                    @if(Auth::user()->has_game($game->id)->isEmpty())
+                                        <!-- User hasnt this game -->
+                                        <a class="button_main button_buy font_20" href="">Придбати зараз</a>
+                                    @else
+                                        <a class="button_main button_buy font_20" href="">Грати зараз!</a>
+                                    @endif
+                                @endguest
                             </div>
                         </div>
                         

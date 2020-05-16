@@ -37,8 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function has_game() {
-
+    public function has_game($game_id) {
+        return GameUser::where('user_id', $this->id)->where('game_id', $game_id)->get();
     }
 
     public function games() {

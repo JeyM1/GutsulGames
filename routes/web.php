@@ -20,12 +20,9 @@ Route::get('/', 'MainController@index');
 Route::get('/aboutus', 'MainController@aboutus');
 Route::get('/catalog', 'MainController@catalog');
 Route::get('/users/{user}', 'MainController@users');
-Route::get('/games/{game}', 'MainController@games');
+Route::get('/games/{gameid}', 'MainController@games')->name('games');
 Route::get('/checkout', 'MainController@checkout');
 
-Route::get('/testuser', function() {
-    return view('home');
-});
 
 
 //Route::get('/home', 'HomeController@index')->name('home');

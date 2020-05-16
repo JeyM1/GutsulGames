@@ -17,7 +17,12 @@ class CreateGamesTable extends Migration
             $table->id();
             $table->integer('price');
             $table->text('name');
-            $table->longText('path');
+            $table->longText('description');
+            $table->text('developer');
+            $table->text('publisher');
+            $table->date('release_date');
+            $table->text('image_path');
+            $table->text('game_path');
             $table->timestamps();
         });
     }

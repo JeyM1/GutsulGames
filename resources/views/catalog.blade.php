@@ -15,7 +15,23 @@
                     </form> 
                 </div>
                 <div class="container-fluid">
+                    <!-- Games Start -->
                     <div class="row align-items-start justify-content-center justify-content-sm-start">
+
+                    @foreach ($games as $game)
+                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                            <a href="{{ '/games/'.$game->id }}">
+                                <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                            </a>
+                            <a class="game_text text-center text-md-left" href="">
+                                {{ $game->name }}
+                            </a>
+                            <p class="game_text text-center text-md-left padding_bottom_20">
+                                {{ $game->price }} ₴
+                            </p>
+                        </div>
+                    @endforeach
+                    <!--
                         <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                             <a href="">
                                 <img class="padding_bottom_20 full_width" src="/images/games/14.png">
@@ -103,7 +119,7 @@
                             <p class="game_text text-center text-md-left padding_bottom_20">
                                 600 ₴
                             </p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
