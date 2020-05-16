@@ -49,7 +49,7 @@
                     </p>
                 </div>
 
-                <button type="submit" class="button_main button_filled text_white font_17 full_width border_radius_10" href="">
+                <button type="submit" class="button_main button_filled text_white font_17 full_width border_radius_10 p-2" href="">
                     Створити обліковий запис
                 </button>
             </form>
