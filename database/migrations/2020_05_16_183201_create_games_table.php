@@ -18,6 +18,7 @@ class CreateGamesTable extends Migration
             $table->integer('price');
             $table->text('name');
             $table->longText('path');
+            $table->timestamps();
         });
     }
 

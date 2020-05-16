@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function has_game() {
+
+    }
+
+    public function games() {
+        return $this->belongsToMany('App\Games');
+    }
 }
