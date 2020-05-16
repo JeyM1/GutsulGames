@@ -34,14 +34,16 @@
                     <div class="row">
                         <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex align-items-center justify-content-center game padding_none">
-                                <img class="full_width" src="/images/games/14.png">
+                                <a href="">
+                                    <img class="full_width" src="/images/games/14.png">
+                                </a>
                             </div>
                         </div>
                         <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
-                                <p class="main_text padding_left_10 text_align_left text_purple font_30">
+                                <a class="main_text padding_left_10 text_align_left text_purple font_30" href="">
                                     LevelHead
-                                </p>
+                                </a>
                             </div>
                         </div>
                         <div class="col-4 col-md-5 col-xs-12 d-flex justify-content-start align-items-center">
@@ -58,14 +60,16 @@
                     <div class="row">
                         <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex align-items-center justify-content-center game padding_none">
-                                <img class="full_width" src="/images/games/14.png">
+                                <a href="">
+                                    <img class="full_width" src="/images/games/14.png">
+                                </a>
                             </div>
                         </div>
                         <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
-                                <p class="main_text padding_left_10 text_align_left text_purple font_30">
+                                <a class="main_text padding_left_10 text_align_left text_purple font_30" href="">
                                     LevelHead
-                                </p>
+                                </a>
                             </div>
                         </div>
                         <div class="col-4 col-md-5 col-xs-12 d-flex justify-content-start align-items-center">

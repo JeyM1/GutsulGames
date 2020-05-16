@@ -29,7 +29,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-start">
                         <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
-                            <img src="/images/about_us_img1.svg">
+                            <img class="why_us_img_size" src="/images/about_us_img1.svg">
                             <p class="main_text padding_top_10">
                                 Купуй своє
                             </p>
@@ -38,7 +38,7 @@
                             </p>
                         </div>
                         <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
-                            <img src="/images/about_us_img2.svg">
+                            <img class="why_us_img_size" src="/images/about_us_img2.svg">
                             <p class="main_text padding_top_10">
                                 Бонуси
                             </p>
@@ -47,7 +47,7 @@
                             </p>
                         </div>
                         <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
-                            <img src="/images/about_us_img3.svg">
+                            <img class="why_us_img_size" src="/images/about_us_img3.svg">
                             <p class="main_text padding_top_10">
                                 Офіційні ключі
                             </p>
@@ -65,37 +65,45 @@
                 <div class="container-fluid">
                     <div class="row align-items-start">
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 The Cycle
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 100 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 Before We Leave
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 600 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 LevelHead
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 250 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 Saints Row
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 600 ₴
                             </p>
@@ -103,7 +111,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center padding_bottom_30">
-                    <a class="button_main button_filled font_20" href="">Більше</a>
+                    <a class="button_main button_filled font_25" href="">Більше</a>
                 </div>
 
 
@@ -111,37 +119,45 @@
                 <div class="container-fluid">
                     <div class="row align-items-start">
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 The Cycle
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 100 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 Before We Leave
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 600 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 LevelHead
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 250 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 Saints Row
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 600 ₴
                             </p>
@@ -149,7 +165,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center padding_bottom_30">
-                    <a class="button_main button_filled font_20" href="">Більше</a>
+                    <a class="button_main button_filled font_25" href="">Більше</a>
                 </div>
 
 
@@ -157,37 +173,45 @@
                 <div class="container-fluid">
                     <div class="row align-items-start">
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 The Cycle
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 100 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 Before We Leave
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 600 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 LevelHead
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 250 ₴
                             </p>
                         </div>
                         <div class="col-md-3 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            <p class="game_text">
+                            <a href="">
+                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
+                            </a>
+                            <a class="game_text" href="">
                                 Saints Row
-                            </p>
+                            </a>
                             <p class="game_text padding_bottom_20">
                                 600 ₴
                             </p>
@@ -195,7 +219,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <a class="button_main button_filled font_20" href="">Більше</a>
+                    <a class="button_main button_filled font_25" href="">Більше</a>
                 </div>
             </div>
         </div>

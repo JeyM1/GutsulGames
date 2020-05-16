@@ -3,7 +3,7 @@
 
 @section('content')
 <div id="login_page">
-    <div class="d-flex justify-content-center align-items-center flex-column login_bg">
+    <div class="d-flex justify-content-center align-items-center flex-column login_bg margin_sides_20">
         <p class="logo2 padding_top_10">Gutsul Games</p>
         <p class="main_text text_purple font_25">Вхід в особистий кабінет</p>
         <div class="col-md-12 col-xs-12 d-flex justify-content-center flex-column padding_bottom_20">
@@ -12,7 +12,7 @@
 
                 <!--<input class="input_login" type="email" placeholder="Електронна пошта користувача:">-->
                 <div class="padding_bottom_20">
-                    <input id="email" type="email" class="input_login @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Електронна пошта користувача:">
+                    <input id="email" type="email" class="input_login @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Електронна пошта:">
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

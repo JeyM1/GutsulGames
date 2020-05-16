@@ -3,7 +3,7 @@
 
 @section('content')
 <div id="login_page">
-    <div class="d-flex justify-content-center align-items-center flex-column login_bg">
+    <div class="d-flex justify-content-center align-items-center flex-column login_bg margin_sides_20">
         <p class="logo2 padding_top_10">Gutsul Games</p>
         <p class="main_text text_purple font_25">Реєстрація</p>
         <div class="col-md-12 col-xs-12 d-flex justify-content-center flex-column padding_bottom_20">
