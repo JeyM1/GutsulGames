@@ -4,7 +4,7 @@
 @section('content')
     <div id="main_page">
         <div>
-            <a class="button_main" href="">Зареєструватися</a>
+            <a class="button_main" href="{{ route('register') }}">Зареєструватися</a>
         </div>
     </div>
     <div class="container-fluid">
@@ -230,6 +230,23 @@
                 <p class="text_yellow main_text font_30">
                     ПІДПИСУЙСЯ НА НАШІ НОВИНИ ТА БУДЬ У КУРСІ СПЕЦІАЛЬНИХ ПРОПОЗИЦІЙ
                 </p>
+                <form class="main_page_form" action="">
+                    <div class="text_yellow d-flex justify-content-center padding_bottom_20">
+                        <input id="email" type="email" class="main_page_input" name="email" placeholder="Електронна пошта...">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button class="button_main button_register text_yellow" type="submit">
+                            Продовжити
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!--<div class="row bg_purple justify-content-center">
+            <div class="content_block col-md-10 col-xs-12">
+                <p class="text_yellow main_text font_30">
+                    ПІДПИСУЙСЯ НА НАШІ НОВИНИ ТА БУДЬ У КУРСІ СПЕЦІАЛЬНИХ ПРОПОЗИЦІЙ
+                </p>
                 <div class="d-flex justify-content-center padding_bottom_20">
                     <a class="button_main button_mail text_yellow" href="">Електронна пошта...</a>
                 </div>
@@ -237,7 +254,7 @@
                     <a class="button_main button_register text_yellow" href="">Продовжити</a>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 
 @endsection

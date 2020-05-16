@@ -156,7 +156,8 @@
 }
 
 .margin_sides_20{
-    margin: 20px !important;
+    margin: 100px 20px !important;
+
 }
 
 .padding_none{
@@ -307,7 +308,7 @@ a, a:visited, a:hover{
     background-size: cover;
     div {
         a {
-            .font_25;
+            font-size: 25px;
             color: #FFE500;
             background-color: #24235E;
             border-color: #FFE500;
@@ -318,7 +319,14 @@ a, a:visited, a:hover{
     }
 
     @media (max-width: 768px) {
-        height: calc(~"60vh - 78px");;
+        height: calc(~"60vh - 78px");
+        div {
+            a {
+                font-size: 17px;
+                width: 180px;
+                padding: 10px 5px !important;
+            }
+        }
     }
 }
 
@@ -399,6 +407,26 @@ a, a:visited, a:hover{
 
     @media (max-width: 576px) {
         padding: 15px 80px 15px 20px !important;
+    }
+}
+
+.main_page_form{
+    ::placeholder{
+        font-size: 17px;
+        color: #FFE500;
+    }
+}
+
+.main_page_input{
+    outline: none;
+    background-color: #24235E;
+    border-radius: 50px;
+    border: 1px solid #24235E;
+    padding: 20px 200px 20px 30px !important;
+    color: #FFE500;
+
+    @media (max-width: 576px) {
+        padding: 15px 100px 15px 20px !important; 
     }
 }
 
