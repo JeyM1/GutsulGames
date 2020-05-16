@@ -17,6 +17,7 @@ class CreateGamesTable extends Migration
             $table->id();
             $table->integer('price');
             $table->text('name');
+            $table->bigInteger('purchase_count')->default(0);
             $table->longText('description');
             $table->text('developer');
             $table->text('publisher');
