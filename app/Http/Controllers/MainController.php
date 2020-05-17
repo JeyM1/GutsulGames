@@ -40,7 +40,6 @@ class MainController extends Controller
                         $possible_games = $possible_games->concat($game_collection);
                     }
                 }
-                
             }
             $games = $games->concat($possible_games);
             foreach($types as $type) {
