@@ -54,10 +54,10 @@ class MainController extends Controller
 
     public function users($userid) {
         $user = User::find($userid);
-        if($user->isEmpty()){
+        if(!$user){
             abort(404, 'User not found.');
         }
-        return view('user', ['user' => $user]);
+        return view('user', ['user' => $user, 'usergames' => $user->games]);
     }
 
     public function games($gameid) {

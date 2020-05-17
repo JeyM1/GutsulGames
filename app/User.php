@@ -42,6 +42,6 @@ class User extends Authenticatable
     }
 
     public function games() {
-        return $this->belongsToMany('App\Games');
+        return $this->belongsToMany('App\Game');
     }
 }
