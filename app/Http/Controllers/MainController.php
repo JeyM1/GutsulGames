@@ -22,7 +22,7 @@ class MainController extends Controller
     public function catalog() {
         $search_querry = request()->input(' search');
         $games = [];
-        if($search_querry){
+        if($search_querry) {
             //TODO: search by name & tags
             $games = Game::where('name', 'LIKE', "$search_querry%")->get();
         } else {
