@@ -132,7 +132,20 @@
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Онлайн ігри</p>
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-center justify-content-sm-start">
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                        @foreach ($online_games as $game)
+                            <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                                <a href="{{ route('games', $game->id) }}">
+                                    <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                                </a>
+                                <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
+                                    {{ $game->name }}
+                                </a>
+                                <p class="game_text text-center text-md-left padding_bottom_20">
+                                    {{ $game->price }} ₴
+                                </p>
+                            </div>
+                        @endforeach
+                        <!--<div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                             <a href="">
                                 <img class="padding_bottom_20 full_width" src="/images/games/14.png">
                             </a>
@@ -175,7 +188,7 @@
                             <p class="game_text text-center text-md-left padding_bottom_20">
                                 600 ₴
                             </p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="d-flex justify-content-center padding_bottom_30">
@@ -185,57 +198,30 @@
                 <hr class="line margin_bottom_20">
 
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Скоро</p>
+                @if(!$soon_games->isEmpty())
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-center justify-content-sm-start">
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                The Cycle
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                100 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3  d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                Before We Leave
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                600 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3  d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                LevelHead
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                250 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                Saints Row
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                600 ₴
-                            </p>
-                        </div>
+                        @foreach ($soon_games as $game)
+                            <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                                <a href="{{ route('games', $game->id) }}">
+                                    <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                                </a>
+                                <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
+                                    {{ $game->name }}
+                                </a>
+                                <p class="game_text text-center text-md-left padding_bottom_20">
+                                    {{ $game->price }} ₴
+                                </p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="d-flex justify-content-center">
                     <a class="button_main button_filled font_25" href="">Більше</a>
                 </div>
+                @else 
+                <h1 class="text_white">Currently no games here!</h1>
+                @endif
             </div>
         </div>
         <div class="row bg_purple justify-content-center">

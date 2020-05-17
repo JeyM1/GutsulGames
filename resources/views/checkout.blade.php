@@ -93,7 +93,7 @@
                     <hr class="line">
                 
                 </div>
-                <p class="main_text font_30 text_align_right padding_right_15">Сума: 1000 ₴</p>
+                <p class="main_text font_30 text_align_right padding_right_15">Сума 1000 ₴</p>
                 <div class="d-flex justify-content-center padding_left_10">
                     <a class="button_main button_buy font_25" href="">Оформити замовлення</a>
                 </div>

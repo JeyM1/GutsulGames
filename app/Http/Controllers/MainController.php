@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Game;
+use App\Type;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,10 @@ class MainController extends Controller
     
     public function index()
     {
-        return view('main', ['bestsellers' => Game::orderBy('purchase_count', 'DESC')->take(4)->get()]);
+        $bestsellers = Game::orderBy('purchase_count', 'DESC')->take(4)->get();
+        $online_games = Type::where('name', 'online')->first()->games;
+        $soon_games = Type::where('name', 'soon')->first()->games;
+        return view('main', ['bestsellers' => $bestsellers, 'online_games' => $online_games, 'soon_games' => $soon_games]);
     }
 
     public function aboutus() {
