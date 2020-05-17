@@ -3,7 +3,7 @@
 
 @section('content')
 <div id="login_page">
-    <div class="d-flex justify-content-center align-items-center flex-column login_bg margin_sides_20">
+    <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4 d-flex justify-content-center align-items-center flex-column login_bg margin_sides_20">
         <p class="logo2 padding_top_10">Gutsul Games</p>
         <p class="main_text text_purple font_25">Реєстрація</p>
         <div class="col-md-12 col-xs-12 d-flex justify-content-center flex-column padding_bottom_20">
@@ -44,7 +44,7 @@
                 </div>
                 <div class="d-flex align-items-center padding_top_10 padding_bottom_30">
                     <input class="flag" type="checkbox" name="a" required>
-                    <p class="main_text margin_none float-left font_14 padding_left_10 padding_right_10">
+                    <p class="main_text margin_none float-left font_14 padding_left_10 padding_right_10 text-left">
                         Я прочитав (-ла) та приймаю 
                         <a href="">
                             <u>умови використання</u>

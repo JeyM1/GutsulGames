@@ -13,14 +13,17 @@
                         <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                             
                         </div>
-                        <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
+                        <div class="d-none d-md-block col-md-1">
+
+                        </div>
+                        <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <p class="main_text padding_left_10 text_align_left font_30 margin_none">
                                     Назва
                                 </p>
                             </div>
                         </div>
-                        <div class="col-4 col-md-5 col-xs-12 d-flex justify-content-start align-items-center">
+                        <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <p class="main_text padding_left_10 text_align_left font_30 margin_none">
                                     Ціна
@@ -39,14 +42,17 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
+                        <div class="d-none d-md-block col-md-1">
+
+                        </div>
+                        <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <a class="main_text padding_left_10 text_align_left text_purple font_30" href="">
                                     LevelHead
                                 </a>
                             </div>
                         </div>
-                        <div class="col-4 col-md-5 col-xs-12 d-flex justify-content-start align-items-center">
+                        <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <p class="main_text padding_left_10 text_align_left font_30">
                                     500 ₴
@@ -65,14 +71,17 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
+                        <div class="d-none d-md-block col-md-1">
+
+                        </div>
+                        <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <a class="main_text padding_left_10 text_align_left text_purple font_30" href="">
                                     LevelHead
                                 </a>
                             </div>
                         </div>
-                        <div class="col-4 col-md-5 col-xs-12 d-flex justify-content-start align-items-center">
+                        <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
                             <div class="d-flex justify-content-center align-items-center">
                                 <p class="main_text padding_left_10 text_align_left font_30">
                                     500 ₴
@@ -84,7 +93,7 @@
                     <hr class="line">
                 
                 </div>
-                <p class="main_text font_30 text_align_right padding_right_15">Сума 1000 ₴</p>
+                <p class="main_text font_30 text_align_right padding_right_15">Сума: 1000 ₴</p>
                 <div class="d-flex justify-content-center padding_left_10">
                     <a class="button_main button_buy font_25" href="">Оформити замовлення</a>
                 </div>
