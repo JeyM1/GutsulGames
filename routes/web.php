@@ -16,12 +16,12 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', 'MainController@index');
-Route::get('/aboutus', 'MainController@aboutus');
-Route::get('/catalog', 'MainController@catalog');
-Route::get('/users/{user}', 'MainController@users');
+Route::get('/', 'MainController@index')->name('main');
+Route::get('/aboutus', 'MainController@aboutus')->name('aboutus');
+Route::get('/catalog', 'MainController@catalog')->name('catalog');
+Route::get('/users/{user}', 'MainController@users')->name('users');
 Route::get('/games/{gameid}', 'MainController@games')->name('games');
-Route::get('/checkout', 'MainController@checkout');
+Route::get('/checkout', 'MainController@checkout')->name('checkout');
 
 
 

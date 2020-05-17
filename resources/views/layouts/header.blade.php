@@ -65,26 +65,26 @@
             </button>
 
             <div class="d-flex justify-content-center justify-content-xl-start">
-                <a class="navbar-brand logo" href="#">Gutsul Games</a>
+                <a class="navbar-brand logo" href="{{ route('main') }}">Gutsul Games</a>
             </div>
 
             <div class="row align-items-center padding_none">
                 <div class="d-none d-xl-block">
                     <div class="nav-item d-inline-flex">
-                        <a class="nav-link font_17" href="#">Головна</a>
+                        <a class="nav-link font_17" href="{{ route('main') }}">Головна</a>
                     </div>
                     <div class="nav-item d-inline-flex">
-                        <a class="nav-link font_17" href="#">Каталог</a>
+                        <a class="nav-link font_17" href="{{ route('catalog') }}">Каталог</a>
                     </div>
                     <div class="nav-item d-inline-flex">
-                        <a class="nav-link font_17" href="#">Про нас</a>
+                        <a class="nav-link font_17" href="{{ route('aboutus') }}">Про нас</a>
                     </div>
                 </div>
                 <div class="nav-icons d-inline-flex">
-                    <a href="#">
+                    <a href="{{ route('checkout') }}">
                         <img src="/images/shopping-cart.svg">
                     </a>
-                    <a href="#">
+                    <a href="{{ route('catalog').'#search' }}">
                         <img src="/images/search.svg">
                     </a>
                 </div>

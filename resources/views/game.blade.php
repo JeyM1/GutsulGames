@@ -26,22 +26,22 @@
                             <p class="main_text padding_left_10 text_align_left font_17">
                                 {{ $game->description }}
                             </p>
-                            @isset($game->developer)
+                            @if($game->developer)
                                 <p class="main_text padding_left_10 text_align_left font_20">
                                     <span class="text_purple">Розробник:</span> {{ $game->developer }} 
                                 </p>
-                            @endisset
-                            @isset($game->publisher)
+                            @endif
+                            @if($game->publisher)
                                 <p class="main_text padding_left_10 text_align_left font_20">
                                     <span class="text_purple">Видавець:</span> {{ $game->publisher }} 
                                 </p>
-                            @endisset
-                            @isset($game->release_date)
+                            @endif
+                            @if($game->release_date)
                                 <p class="main_text padding_left_10 text_align_left font_20">
                                     <!--<span class="text_purple">Дата виходу:</span> {{ Carbon\Carbon::parse($game->release_date)->formatLocalized("%d %B %Y") }}-->
                                     <span class="text_purple">Дата виходу:</span> {{ date('j F Y', strtotime($game->release_date)) }}
                                 </p>
-                            @endisset
+                            @endif
                             
                             <p class="main_text padding_left_10 text_align_left font_20">
                                 <span class="text_purple">ЦІНА:</span> {{ $game->price }} ₴

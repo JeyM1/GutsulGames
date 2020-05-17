@@ -64,7 +64,20 @@
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Бестселери</p>
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-center justify-content-sm-start">
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                        @foreach ($bestsellers as $game)
+                            <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                                <a href="{{ route('games', $game->id) }}">
+                                    <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                                </a>
+                                <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
+                                    {{ $game->name }}
+                                </a>
+                                <p class="game_text text-center text-md-left padding_bottom_20">
+                                    {{ $game->price }} ₴
+                                </p>
+                            </div>
+                        @endforeach
+                        <!--<div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                             <a href="">
                                 <img class="padding_bottom_20 full_width" src="/images/games/14.png">
                             </a>
@@ -107,7 +120,7 @@
                             <p class="game_text text-center text-md-left padding_bottom_20">
                                 600 ₴
                             </p>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
                 <div class="d-flex justify-content-center padding_bottom_30">

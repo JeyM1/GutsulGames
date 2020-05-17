@@ -11,19 +11,22 @@
                         <button class="button_search" type="submit">
                             <img src="/images/white_search.svg">
                         </button>
-                        <input type="text" placeholder="пошук...">
-                    </form> 
+                        <input id="search" type="text" name="search" placeholder="пошук..." @if($catalog_search) value="{{$catalog_search}}" @endif >
+                    </form>
                 </div>
                 <div class="container-fluid">
                     <!-- Games Start -->
                     <div class="row align-items-start justify-content-center justify-content-sm-start">
 
+                    @if($catalog_search && $games->isEmpty())
+                        <h1 class="text_white">Nothing found!</h1>
+                    @endif
                     @foreach ($games as $game)
                         <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="{{ '/games/'.$game->id }}">
+                            <a href="{{ route('games', $game->id) }}">
                                 <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
                             </a>
-                            <a class="game_text text-center text-md-left" href="">
+                            <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
                                 {{ $game->name }}
                             </a>
                             <p class="game_text text-center text-md-left padding_bottom_20">
