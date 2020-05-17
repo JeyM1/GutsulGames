@@ -5,13 +5,13 @@
                 <div class="row">
                     <div class="col-md-3 col-xs-12 d-md-flex justify-content-start flex-column align-items-start d-none">
                         <div class="d-flex flex-column align-items-start">
-                            <a class="game_text" href="">
+                            <a class="game_text" href="{{ route('main') }}">
                                 Головна
                             </a>
-                            <a class="game_text" href="">
+                            <a class="game_text" href="{{ route('catalog') }}">
                                 Каталог
                             </a>
-                            <a class="game_text" href="">
+                            <a class="game_text" href="{{ route('aboutus') }}">
                                 Про нас
                             </a>
                         </div>
@@ -34,13 +34,26 @@
                     </div>
                     <div class="col-md-3 col-xs-12 d-md-flex justify-content-end flex-column align-items-end d-none">
                         <div class="d-flex flex-column align-items-start">
-                            <a class="game_text" href="">
-                                Реєстрація
-                            </a>
-                            <a class="game_text" href="">
-                                Логін
-                            </a>
-                            <a class="game_text" href="">
+                            @guest
+                                <a class="game_text" href="{{ route('register') }}">
+                                    Реєстрація
+                                </a>
+                                <a class="game_text" href="{{ route('login') }}">
+                                    Логін
+                                </a>
+                            @else
+                                <a class="game_text" href="{{ route('users', Auth::user()->id) }}">
+                                    {{ \Illuminate\Support\Str::limit(Auth::user()->name, 20) }}
+                                </a>
+                                <a class="game_text" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Вийти з аккаунту
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            @endguest
+                            <a class="game_text" href="{{ route('checkout') }}">
                                 Кошик
                             </a>    
                         </div>
