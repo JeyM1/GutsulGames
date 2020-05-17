@@ -84,7 +84,7 @@
                     <a href="{{ route('checkout') }}">
                         <img src="/images/shopping-cart.svg">
                     </a>
-                    <a href="{{ route('catalog').'#search' }}">
+                    <a href="{{ route('catalog') }}">
                         <img src="/images/search.svg">
                     </a>
                 </div>

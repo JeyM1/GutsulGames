@@ -24,16 +24,33 @@ class MainController extends Controller
     }
 
     public function catalog() {
-        $search_querry = request()->input(' search');
-        $games = [];
-        if($search_querry) {
-            //TODO: search by name & tags
-            $games = Game::where('name', 'LIKE', "$search_querry%")->get();
+        $search_querry = collect(preg_split("/(,|;)/", request()->input('search')))->unique();
+        $games = collect([]);
+        if($search_querry[0]) {
+            $types = collect([]);
+            $possible_games = collect([]);
+            foreach($search_querry as $search_element) {
+                if($search_element) {
+                    $type = Type::where('name', "$search_element")->first();
+                    $game_collection = Game::where('name', 'LIKE', "%$search_element%")->get();
+                    if($type) {
+                        $types->add($type);
+                    }
+                    if($game_collection) {
+                        $possible_games = $possible_games->concat($game_collection);
+                    }
+                }
+                
+            }
+            $games = $games->concat($possible_games);
+            foreach($types as $type) {
+                $games = $games->concat($type->games);
+            }
+            $games = $games->unique('id');
         } else {
-            $games = Game::all();
+            $games = $games->concat(Game::all());
         }
-        
-        return view('catalog', ['games' => $games, 'catalog_search' => $search_querry]);
+        return view('catalog', ['games' => $games, 'catalog_search' => implode(";", $search_querry->toArray())]);
     }
 
     public function users($userid) {
