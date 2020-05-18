@@ -236,6 +236,11 @@ a:hover {
     font-size: 25px !important;
   }
 }
+@media (max-width: 991px) {
+  .logo {
+    margin-right: 0 !important;
+  }
+}
 .logo2 {
   font-size: 35px !important;
   color: #FFE500 !important;

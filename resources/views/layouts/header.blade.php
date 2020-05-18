@@ -53,12 +53,12 @@
 
 <nav class="navbar navbar-expand-lg header">
     <div class="container-fluid justify-content-center">
-        <div class="row col-md-10 col-xs-12 align-items-center padding_none">
+        <div class="row col-md-10 col-xs-12 align-items-center padding_none justify-content-between">
             <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>-->
 
-            <button style="margin-top: 5px;" class="d-block d-xl-none hamburger hamburger--arrowturn" type="button" id="nav-icon1">
+            <button style="margin-top: 5px; margin-right: 30px" class="d-block d-xl-none hamburger hamburger--arrowturn" type="button" id="nav-icon1">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
@@ -68,7 +68,7 @@
                 <a class="navbar-brand logo" href="{{ route('main') }}">Gutsul Games</a>
             </div>
 
-            <div class="row align-items-center padding_none">
+            <div class="row align-items-center padding_none margin_none">
                 <div class="d-none d-xl-block">
                     <div class="nav-item d-inline-flex">
                         <a class="nav-link font_17" href="{{ route('main') }}">Головна</a>
@@ -80,7 +80,7 @@
                         <a class="nav-link font_17" href="{{ route('aboutus') }}">Про нас</a>
                     </div>
                 </div>
-                <div class="nav-icons d-inline-flex">
+                <div class="nav-icons">
                     <a href="{{ route('checkout') }}">
                         <img src="/images/shopping-cart.svg">
                     </a>
@@ -90,9 +90,9 @@
                 </div>
             </div>
 
-            <div class="spacer"></div>
+            <div class="d-none d-lg-block spacer"></div>
             
-            <div class="row d-none d-xl-flex align-items-center padding_none">
+            <div style="padding-right: 20px" class="row d-none d-lg-flex align-items-center">
                 @guest
                     <div style="margin-right: 15px">
                         <a class="button_main font_17" id="login" href="{{ route('login') }}">Логін</a>
