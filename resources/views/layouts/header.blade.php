@@ -68,7 +68,7 @@
                 <a class="navbar-brand logo" href="{{ route('main') }}">Gutsul Games</a>
             </div>
 
-            <div class="row align-items-center padding_none margin_none">
+            <div class="d-flex align-items-center padding_none margin_none">
                 <div class="d-none d-xl-block">
                     <div class="nav-item d-inline-flex">
                         <a class="nav-link font_17" href="{{ route('main') }}">Головна</a>
@@ -80,7 +80,7 @@
                         <a class="nav-link font_17" href="{{ route('aboutus') }}">Про нас</a>
                     </div>
                 </div>
-                <div class="nav-icons">
+                <div class="nav-icons d-flex">
                     <a href="{{ route('checkout') }}">
                         <img src="/images/shopping-cart.svg">
                     </a>
@@ -92,7 +92,7 @@
 
             <div class="d-none d-lg-block spacer"></div>
             
-            <div style="padding-right: 20px" class="row d-none d-lg-flex align-items-center">
+            <div style="padding-right: 20px" class="d-none d-lg-flex align-items-center">
                 @guest
                     <div style="margin-right: 15px">
                         <a class="button_main font_17" id="login" href="{{ route('login') }}">Логін</a>
