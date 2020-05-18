@@ -53,12 +53,12 @@
 
 <nav class="navbar navbar-expand-lg header">
     <div class="container-fluid justify-content-center">
-        <div class="row col-md-10 col-xs-12 align-items-center padding_none justify-content-between">
+        <div class="row col-md-10 col-xs-12 align-items-center padding_none justify-content-between flex-nowrap">
             <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>-->
 
-            <button style="margin-top: 5px; margin-right: 30px" class="d-block d-xl-none hamburger hamburger--arrowturn" type="button" id="nav-icon1">
+            <button style="margin-top: 5px; width: 57.05px; outline:none;" class="d-block d-xl-none hamburger hamburger--arrowturn p-0 mr-0 mr-lg-4" type="button" id="nav-icon1">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
@@ -92,7 +92,7 @@
 
             <div class="d-none d-lg-block spacer"></div>
             
-            <div style="padding-right: 20px" class="d-none d-lg-flex align-items-center">
+            <div class="d-none d-lg-flex align-items-center">
                 @guest
                     <div style="margin-right: 15px">
                         <a class="button_main font_17" id="login" href="{{ route('login') }}">Логін</a>
@@ -101,15 +101,18 @@
                         <a class="button_main font_17" id="register" href="{{ route('register') }}">Реєстрація</a>
                     </div>
                 @else
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle header_user_dropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right header_dropdown" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('users', Auth::user()->id) }}">
+                            Мій профіль
+                        </a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            Вийти з аккаунту
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
