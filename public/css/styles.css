@@ -142,11 +142,24 @@
 .margin_bottom_20 {
   margin: 0 0 20px 0 !important;
 }
+.margin_bottom_custom_20 {
+  margin: 0 0 20px 0 !important;
+}
+@media (max-width: 768px) {
+  .margin_bottom_custom_20 {
+    margin: 0 0 10px 0 !important;
+  }
+}
 .margin_sides_20 {
   margin: 100px 20px !important;
 }
 .padding_none {
   padding: 0 !important;
+}
+@media (max-width: 576px) {
+  .padding_none_576 {
+    padding: 0 !important;
+  }
 }
 .padding_right_10 {
   padding-right: 10px;
@@ -189,6 +202,22 @@
 .image_full_width {
   width: 250px;
   height: auto;
+}
+.image_checkout_width {
+  width: 30px;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .image_checkout_width {
+    width: 20px;
+    height: auto;
+  }
+}
+@media (max-width: 576px) {
+  .image_checkout_width {
+    width: 15px;
+    height: auto;
+  }
 }
 .full_width {
   width: 100%;
