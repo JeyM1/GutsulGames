@@ -4,7 +4,11 @@
 @section('content')
     <div id="main_page">
         <div>
-            <a class="button_main" href="{{ route('register') }}">Зареєструватися</a>
+            @guest
+                <a class="button_main" href="{{ route('register') }}">Зареєструватися</a>
+            @else
+                <a class="button_main" href="{{ route('users', Auth::user()->id) }}">Мій профіль</a>
+            @endguest
         </div>
     </div>
     <div class="container-fluid">
@@ -62,165 +66,85 @@
         <div class="row bg_black justify-content-center">
             <div class="content_block col-md-10 col-xs-12">
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Бестселери</p>
-                <div class="container-fluid">
-                    <div class="row align-items-start justify-content-center justify-content-sm-start">
-                        @foreach ($bestsellers as $game)
-                            <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                                <a href="{{ route('games', $game->id) }}">
-                                    <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
-                                </a>
-                                <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
-                                    {{ $game->name }}
-                                </a>
-                                <p class="game_text text-center text-md-left padding_bottom_20">
-                                    {{ $game->price }} ₴
-                                </p>
-                            </div>
-                        @endforeach
-                        <!--<div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                The Cycle
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                100 ₴
-                            </p>
+                @if($bestsellers->isNotEmpty())
+                    <div class="container-fluid">
+                        <div class="row align-items-start justify-content-center justify-content-sm-start">
+                            @foreach ($bestsellers as $game)
+                                <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                                    <a href="{{ route('games', $game->id) }}">
+                                        <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                                    </a>
+                                    <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
+                                        {{ $game->name }}
+                                    </a>
+                                    <p class="game_text text-center text-md-left padding_bottom_20">
+                                        {{ $game->price }} ₴
+                                    </p>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3  d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                Before We Leave
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                600 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3  d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                LevelHead
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                250 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                Saints Row
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                600 ₴
-                            </p>
-                        </div>-->
                     </div>
-                </div>
-                <div class="d-flex justify-content-center padding_bottom_30">
-                    <a class="button_main button_filled font_25" href="">Більше</a>
-                </div>
+                    <div class="d-flex justify-content-center padding_bottom_30">
+                        <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'bestsellers']) }}">Більше</a>
+                    </div>
+                @else
+                    <h1 class="text_white">Currently no games here!</h1>
+                @endif
 
                 <hr class="line margin_bottom_20">
 
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Онлайн ігри</p>
-                <div class="container-fluid">
-                    <div class="row align-items-start justify-content-center justify-content-sm-start">
-                        @foreach ($online_games as $game)
-                            <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                                <a href="{{ route('games', $game->id) }}">
-                                    <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
-                                </a>
-                                <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
-                                    {{ $game->name }}
-                                </a>
-                                <p class="game_text text-center text-md-left padding_bottom_20">
-                                    {{ $game->price }} ₴
-                                </p>
-                            </div>
-                        @endforeach
-                        <!--<div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                The Cycle
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                100 ₴
-                            </p>
+                @if($online_games->isNotEmpty())
+                    <div class="container-fluid">
+                        <div class="row align-items-start justify-content-center justify-content-sm-start">
+                            @foreach ($online_games as $game)
+                                <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                                    <a href="{{ route('games', $game->id) }}">
+                                        <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                                    </a>
+                                    <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
+                                        {{ $game->name }}
+                                    </a>
+                                    <p class="game_text text-center text-md-left padding_bottom_20">
+                                        {{ $game->price }} ₴
+                                    </p>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3  d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                Before We Leave
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                600 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3  d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                LevelHead
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                250 ₴
-                            </p>
-                        </div>
-                        <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                            <a href="">
-                                <img class="padding_bottom_20 full_width" src="/images/games/14.png">
-                            </a>
-                            <a class="game_text text-center text-md-left" href="">
-                                Saints Row
-                            </a>
-                            <p class="game_text text-center text-md-left padding_bottom_20">
-                                600 ₴
-                            </p>
-                        </div>-->
                     </div>
-                </div>
-                <div class="d-flex justify-content-center padding_bottom_30">
-                    <a class="button_main button_filled font_25" href="">Більше</a>
-                </div>
+                    <div class="d-flex justify-content-center padding_bottom_30">
+                        <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'online']) }}">Більше</a>
+                    </div>
+                @else
+                    <h1 class="text_white">Currently no games here!</h1>
+                @endif
 
                 <hr class="line margin_bottom_20">
 
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Скоро</p>
-                @if(!$soon_games->isEmpty())
-                <div class="container-fluid">
-                    <div class="row align-items-start justify-content-center justify-content-sm-start">
-                        @foreach ($soon_games as $game)
-                            <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
-                                <a href="{{ route('games', $game->id) }}">
-                                    <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
-                                </a>
-                                <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
-                                    {{ $game->name }}
-                                </a>
-                                <p class="game_text text-center text-md-left padding_bottom_20">
-                                    {{ $game->price }} ₴
-                                </p>
-                            </div>
-                        @endforeach
+                @if($soon_games->isNotEmpty())
+                    <div class="container-fluid">
+                        <div class="row align-items-start justify-content-center justify-content-sm-start">
+                            @foreach ($soon_games as $game)
+                                <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
+                                    <a href="{{ route('games', $game->id) }}">
+                                        <img class="padding_bottom_20 full_width" src="{{ $game->image_path }}">
+                                    </a>
+                                    <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
+                                        {{ $game->name }}
+                                    </a>
+                                    <p class="game_text text-center text-md-left padding_bottom_20">
+                                        {{ $game->price }} ₴
+                                    </p>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a class="button_main button_filled font_25" href="">Більше</a>
-                </div>
+                    <div class="d-flex justify-content-center">
+                        <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'soon']) }}">Більше</a>
+                    </div>
                 @else 
-                <h1 class="text_white">Currently no games here!</h1>
+                    <h1 class="text_white">Currently no games here!</h1>
                 @endif
             </div>
         </div>
