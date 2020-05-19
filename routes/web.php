@@ -21,7 +21,9 @@ Route::get('/aboutus', 'MainController@aboutus')->name('aboutus');
 Route::get('/catalog', 'MainController@catalog')->name('catalog');
 Route::get('/users/{user}', 'MainController@users')->name('users');
 Route::get('/games/{gameid}', 'MainController@games')->name('games');
-Route::get('/checkout', 'MainController@checkout')->name('checkout')->middleware('auth');
+Route::get('/checkout', 'CartController@checkout')->name('checkout');
+Route::get('/checkout/confirm', 'CartController@confirm_checkout')->name('confirm');
+Route::get('/add_game/{gameid}', 'CartController@addToUserCart')->name('add_game');
 
 
 

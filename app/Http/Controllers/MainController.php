@@ -68,8 +68,4 @@ class MainController extends Controller
         }
         return view('game', ['game' => $game]);
     }
-
-    public function checkout() {
-        return view('checkout');
-    }
 }

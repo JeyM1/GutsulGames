@@ -38,10 +38,17 @@ class User extends Authenticatable
     ];
 
     public function has_game($game_id) {
-        return GameUser::where('user_id', $this->id)->where('game_id', $game_id)->get();
+        return GameUser::where('user_id', $this->id)->where('game_id', $game_id)->first();
     }
 
     public function games() {
         return $this->belongsToMany('App\Game');
+    }
+
+    public function add_game($gameid) {
+        $gameuser = new GameUser();
+        $gameuser->game_id = $gameid;
+        $gameuser->user_id = $this->id;
+        $gameuser->save();
     }
 }

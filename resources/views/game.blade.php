@@ -50,9 +50,9 @@
                                 @guest
                                     <a class="button_main button_buy font_20" href="{{ route('register') }}">Зареєструйтеся та грайте!</a>
                                 @else
-                                    @if(Auth::user()->has_game($game->id)->isEmpty())
+                                    @if(!Auth::user()->has_game($game->id))
                                         <!-- User hasnt this game -->
-                                        <a class="button_main button_buy font_20" href="">Придбати зараз</a>
+                                        <a class="button_main button_buy font_20" href="{{ route('add_game', $game->id) }}">Придбати зараз</a>
                                     @else
                                         <a class="button_main button_buy font_20" href="">Грати зараз!</a>
                                     @endif
