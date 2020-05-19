@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                     <div class="col-2 col-sm-1 col-md-1 d-flex justify-content-center align-items-center">
-                                        <a href="">
+                                        <a href="{{ route('remove_game', $game->id) }}">
                                             <img class="image_checkout_width margin_bottom_custom_20" src="/images/delete.svg">
                                         </a>
                                     </div>
