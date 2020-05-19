@@ -1,13 +1,10 @@
-@if ($message = Session::get('success'))
-<div class="alert alert-success alert-block">
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-        <strong>{{ $message }}</strong>
-</div>
+@if (Session::has('error_notify'))
+    @php
+        notify()->error(Session::get('error_notify'), 'Помилка!', ['timeOut' => 5000]);
+    @endphp
 @endif
-
-@if ($message = Session::get('error'))
-<div class="alert alert-danger alert-block">
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-        <strong>{{ $message }}</strong>
-</div>
+@if (Session::has('success_notify'))
+    @php
+        notify()->success(Session::get('success_notify'), 'Успішно!', ['timeOut' => 5000]);
+    @endphp
 @endif

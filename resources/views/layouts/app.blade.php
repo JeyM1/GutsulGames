@@ -16,7 +16,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="/js/hamburger.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,6 +27,8 @@
     <link href="/css/styles.css" rel="stylesheet">
     <link href="/css/hamburgers.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @notify_css
+
 </head>
 <body>
     <div id="app">
@@ -36,4 +38,6 @@
         @include('layouts.footer')
     </div>
 </body>
+@notify_js
+@notify_render
 </html>
