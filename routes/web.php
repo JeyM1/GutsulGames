@@ -16,15 +16,16 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
+/* Main routes */
 Route::get('/', 'MainController@index')->name('main');
 Route::get('/aboutus', 'MainController@aboutus')->name('aboutus');
 Route::get('/catalog', 'MainController@catalog')->name('catalog');
 Route::get('/users/{user}', 'MainController@users')->name('users');
 Route::get('/games/{gameid}', 'MainController@games')->name('games');
+
+/* Cart routes */
 Route::get('/checkout', 'CartController@checkout')->name('checkout');
 Route::get('/checkout/confirm', 'CartController@confirm_checkout')->name('confirm');
 Route::get('/add_game/{gameid}', 'CartController@addToUserCart')->name('add_game');
+Route::get('/remove_game/{gameid}', 'CartController@removeFromUserCart')->name('remove_game');
 
-
-
-//Route::get('/home', 'HomeController@index')->name('home');

@@ -35,15 +35,13 @@ class CartController extends Controller
             // Game not exist
             abort(404, 'Game bot found.');
         }
-
         
         $uid = Auth::user()->id;
 
         if(Cart::where('user_id', $uid)->where('game_id', $gameid)->first()) {
             return redirect()->back()->withErrors(['status' => "Гра '$game->name' вже знаходиться у Вашому кошику!"]);
         } else if(Auth::user()->has_game($gameid)) {
-            return "Hello!";
-            return redirect()->route('users', $uid)->withErrors(['status' => "Гра '$game->name' вже закріплена на цьому аккаунті!"]);
+            return redirect()->route('users', $uid)->with(['error' => "Гра '$game->name' вже закріплена на цьому аккаунті!"]);
         }
 
         $cartItem = new Cart();
@@ -51,7 +49,25 @@ class CartController extends Controller
         $cartItem->game_id = $gameid;
         $cartItem->save();
         
-        return redirect()->to('checkout')->withSuccess("Гра '$game->name' додана до Вашого кошику!");
+        return redirect()->to('checkout')->with(['success' =>"Гра '$game->name' додана до Вашого кошику!"]);
+    }
+
+    public function removeFromUserCart($gameid) {
+        $game = Game::find($gameid);
+
+        if(!$game){
+            // Game not exist
+            abort(404, 'Game bot found.');
+        }
+
+        $uid = Auth::user()->id;
+        $q = Cart::where('user_id', $uid)->where('game_id', $gameid);
+        $removeItem = $q->first();
+        if(!$removeItem) {
+            return redirect()->back()->with(['error' => "Гра '$game->name' не знаходиться у Вашому кошику!"]);
+        }
+        $q->delete();
+        return redirect()->to('checkout')->with(['success' => "Гра '$game->name' була видалена з Вашого кошику!"]);
     }
 
     public function confirm_checkout() {
@@ -61,6 +77,6 @@ class CartController extends Controller
             $user->add_game($cartItem->game->id);
         }
         Cart::where('user_id', $user->id)->delete();
-        return redirect()->route('users', $user->id)->withSuccess('Успішний платіж! Ігри були додані до Вашого аккаунту!');
+        return redirect()->route('users', $user->id)->with(['success' => 'Успішний платіж! Ігри були додані до Вашого аккаунту!']);
     }
 }

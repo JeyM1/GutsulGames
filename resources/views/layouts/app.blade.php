@@ -16,6 +16,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="/js/hamburger.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -29,9 +30,10 @@
 </head>
 <body>
     <div id="app">
-    @include('layouts.header')
-    @yield('content')
-    @include('layouts.footer')
+        @include('layouts.popup')
+        @include('layouts.header')
+        @yield('content')
+        @include('layouts.footer')
     </div>
 </body>
 </html>
