@@ -9,25 +9,25 @@
                     <p class="main_text text_purple text_bold font_40">КОШИК</p>
                         @if($userCart->isNotEmpty())
                             <div class="row">
-                                <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
+                                <div class="col-3 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                                     
                                 </div>
-                                <div class="d-none d-md-block col-md-1">
-
-                                </div>
-                                <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
+                                <div class="col-4 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center padding_none_576">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <p class="main_text padding_left_10 text_align_left font_30 margin_none">
                                             Назва
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
+                                <div class="col-3 col-sm-3 col-md-3 col-xs-12 d-flex justify-content-start align-items-center padding_none">
                                     <div class="d-flex justify-content-center align-items-center">
                                         <p class="main_text padding_left_10 text_align_left font_30 margin_none">
                                             Ціна
                                         </p>
                                     </div>
+                                </div>
+                                <div class="col-2 col-sm-1 col-md-1">
+
                                 </div>
                             </div>
 
@@ -35,36 +35,38 @@
 
                             @foreach($userCart as $game)
                                 <div class="row">
-                                    <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
+                                    <div class="col-3 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                                         <div class="d-flex align-items-center justify-content-center game padding_none">
                                             <a href="{{ route('games', $game->id) }}">
                                                 <img class="full_width" src="{{ $game->image_path }}">
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="d-none d-md-block col-md-1">
-
-                                    </div>
-                                    <div class="col-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
+                                    <div class="col-4 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center padding_none_576">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <a class="main_text padding_left_10 text_align_left text_purple font_30" href="{{ route('games', $game->id) }}">
                                                 {{ $game->name }}
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-4 col-md-3 col-xs-12 d-flex justify-content-start align-items-center">
+                                    <div class="col-3 col-sm-3 col-md-3 col-xs-12 d-flex justify-content-start align-items-center padding_none">
                                         <div class="d-flex justify-content-center align-items-center">
                                             <p class="main_text padding_left_10 text_align_left font_30">
                                                 {{ $game->price }} ₴
                                             </p>
                                         </div>
                                     </div>
+                                    <div class="col-2 col-sm-1 col-md-1 d-flex justify-content-center align-items-center">
+                                        <a href="">
+                                            <img class="image_checkout_width margin_bottom_custom_20" src="/images/delete.svg">
+                                        </a>
+                                    </div>
                                 </div>
                             
                                 <hr class="line">
                             @endforeach
 
-                        <p class="main_text font_30 text_align_right padding_right_15">Сума {{ $total }} ₴</p>
+                        <p class="main_text font_30 text_align_right">Сума {{ $total }} ₴</p>
                         <div class="d-flex justify-content-center padding_left_10">
                             <a class="button_main button_buy font_25" href="{{ route('confirm') }}">Оформити замовлення</a>
                         </div>
