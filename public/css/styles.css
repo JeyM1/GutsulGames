@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+/* Notify */
+#toast-container > div {
+  box-shadow: 0 0 12px #1C1C1C !important;
+  -webkit-box-shadow: 0 0 12px #1C1C1C !important;
+}
 .spacer {
   margin: auto;
 }
