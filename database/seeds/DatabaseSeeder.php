@@ -1,6 +1,8 @@
 <?php
 
+use App\Type;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        // adding basic types
+        DB::table('types')->insert(['name' => "bestseller"]);
+        DB::table('types')->insert(['name' => "online"]);
+        DB::table('types')->insert(['name' => "soon"]);
+
+        // adding test games
+        factory(App\Game::class, 10)->create();
     }
 }

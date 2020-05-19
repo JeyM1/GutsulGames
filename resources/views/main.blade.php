@@ -23,46 +23,48 @@
                     для розробників. 
                 </p>
                 <div class="d-flex justify-content-center">
-                    <a class="button_main button_filled font_25" href="">Детальніше</a>
+                    <a class="button_main button_filled font_25" href="{{ route('aboutus') }}">Детальніше</a>
                 </div>
             </div>
         </div>
-        <div class="row bg_purple justify-content-center">
-            <div class="content_block col-md-10 col-xs-12">
-                <p id="why_us">Чому ми?</p>
-                <div class="container-fluid">
-                    <div class="row align-items-start">
-                        <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="why_us_img_size" src="/images/about_us_img1.svg">
-                            <p class="main_text padding_top_10">
-                                Купуй своє
-                            </p>
-                            <p class="main_text font_20">
-                                Тільки українські ігри від українських розробників
-                            </p>
-                        </div>
-                        <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="why_us_img_size" src="/images/about_us_img2.svg">
-                            <p class="main_text padding_top_10">
-                                Бонуси
-                            </p>
-                            <p class="main_text font_20">
-                                Отримай бонус після першої покупки 
-                            </p>
-                        </div>
-                        <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
-                            <img class="why_us_img_size" src="/images/about_us_img3.svg">
-                            <p class="main_text padding_top_10">
-                                Офіційні ключі
-                            </p>
-                            <p class="main_text font_20">
-                                Всі ключі закуповуються у офіційних дилерів
-                            </p>
+        @guest
+            <div class="row bg_purple justify-content-center">
+                <div class="content_block col-md-10 col-xs-12">
+                    <p id="why_us">Чому ми?</p>
+                    <div class="container-fluid">
+                        <div class="row align-items-start">
+                            <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
+                                <img class="why_us_img_size" src="/images/about_us_img1.svg">
+                                <p class="main_text padding_top_10">
+                                    Купуй своє
+                                </p>
+                                <p class="main_text font_20">
+                                    Тільки українські ігри від українських розробників
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
+                                <img class="why_us_img_size" src="/images/about_us_img2.svg">
+                                <p class="main_text padding_top_10">
+                                    Бонуси
+                                </p>
+                                <p class="main_text font_20">
+                                    Отримай бонус після першої покупки 
+                                </p>
+                            </div>
+                            <div class="col-md-4 col-xs-12 d-flex justify-content-center flex-column">
+                                <img class="why_us_img_size" src="/images/about_us_img3.svg">
+                                <p class="main_text padding_top_10">
+                                    Офіційні ключі
+                                </p>
+                                <p class="main_text font_20">
+                                    Всі ключі закуповуються у офіційних дилерів
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endguest
         <div class="row bg_black justify-content-center">
             <div class="content_block col-md-10 col-xs-12">
                 <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Бестселери</p>
