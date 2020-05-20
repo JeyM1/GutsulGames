@@ -662,17 +662,20 @@ input[type=checkbox]:checked:after {
         overflow: hidden;
         position: relative;
         padding-right: 20px;
+        margin: 0;
     }
     
     @media (max-width: 576px) {
         height: 380px;
         width: 270px;
+        margin: 0;
     }
 }
 
 .box2_image{
     width: 370px;
     height: 500px;
+    object-fit: cover;
 
     @media (max-width: 1200px) {
         object-fit: cover;
