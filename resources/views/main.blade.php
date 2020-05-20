@@ -102,7 +102,7 @@
                             @foreach ($online_games as $game)
                                 <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                                     <a class="box" href="{{ route('games', $game->id) }}">
-                                        <img class="boc_image" src="{{ $game->image_path }}">
+                                        <img class="box_image" src="{{ $game->image_path }}">
                                     </a>
                                     <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
                                         {{ $game->name }}
