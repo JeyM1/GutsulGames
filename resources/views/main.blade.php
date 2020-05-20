@@ -93,10 +93,10 @@
                     <h1 class="text_white">Currently no games here!</h1>
                 @endif
 
-                <hr class="line margin_bottom_20">
-
-                <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Онлайн ігри</p>
                 @if($online_games->isNotEmpty())
+                    <hr class="line margin_bottom_20">
+
+                    <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Онлайн ігри</p>
                     <div class="container-fluid">
                         <div class="row align-items-start justify-content-center justify-content-sm-start">
                             @foreach ($online_games as $game)
@@ -117,14 +117,12 @@
                     <div class="d-flex justify-content-center padding_bottom_30">
                         <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'online']) }}">Більше</a>
                     </div>
-                @else
-                    <h1 class="text_white">Currently no games here!</h1>
                 @endif
 
-                <hr class="line margin_bottom_20">
-
-                <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Скоро</p>
                 @if($soon_games->isNotEmpty())
+                    <hr class="line margin_bottom_20">
+
+                    <p class="main_text text_purple padding_bottom_20 text_bold font_static_26">Скоро</p>
                     <div class="container-fluid">
                         <div class="row align-items-start justify-content-center justify-content-sm-start">
                             @foreach ($soon_games as $game)
@@ -145,8 +143,6 @@
                     <div class="d-flex justify-content-center">
                         <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'soon']) }}">Більше</a>
                     </div>
-                @else 
-                    <h1 class="text_white">Currently no games here!</h1>
                 @endif
             </div>
         </div>
