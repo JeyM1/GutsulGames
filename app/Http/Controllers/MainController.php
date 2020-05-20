@@ -61,11 +61,14 @@ class MainController extends Controller
     }
 
     public function games($gameid) {
-        //return Auth::user()->has_game(1);
         $game = Game::find($gameid);
         if(!$game){
             abort('404', 'Game not gound.');
         }
-        return view('game', ['game' => $game]);
+
+        return view('game', [
+            'game' => $game, 
+            'playroute' => $game->types->contains(Type::where('name', 'online')->first()) ? "play" : "download"
+            ]);
     }
 }

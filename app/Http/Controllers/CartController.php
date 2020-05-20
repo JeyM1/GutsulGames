@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -73,8 +72,11 @@ class CartController extends Controller
     public function confirm_checkout() {
         // TODO?: redirect to payment service and wait untill confirmation of purchase
         $user = Auth::user();
-        foreach(Cart::getUserGames($user->id) as $cartItem){
-            $user->add_game($cartItem->game->id);
+        foreach(Cart::getUserGames($user->id) as $cartItem) {
+            $game = $cartItem->game;
+            $user->add_game($game->id);
+            $game->purchase_count++;
+            $game->save();
         }
         Cart::where('user_id', $user->id)->delete();
         return redirect()->route('users', $user->id)->with(['success_notify' => 'Успішний платіж! Ігри були додані до Вашого аккаунту!']);

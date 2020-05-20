@@ -29,3 +29,5 @@ Route::get('/checkout/confirm', 'CartController@confirm_checkout')->name('confir
 Route::get('/add_game/{gameid}', 'CartController@addToUserCart')->name('add_game');
 Route::get('/remove_game/{gameid}', 'CartController@removeFromUserCart')->name('remove_game');
 
+/* Games routes */
+Route::get('/play/{id}', 'GameController@play_online')->name('play');
