@@ -13,7 +13,7 @@ $factory->define(Game::class, function (Faker $faker) {
         'developer' => $faker->name,
         'publisher' => '',
         'release_date' => $faker->date,
-        'image_path' => '\images\games\test\\'.rand(1, 15).'.png',
+        'image_path' => '\images\games\test\\'.rand(1, 14).'.png',
         'game_path' => '\\'
     ];
 });
