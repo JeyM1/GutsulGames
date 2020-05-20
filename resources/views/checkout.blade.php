@@ -36,11 +36,9 @@
                             @foreach($userCart as $game)
                                 <div class="row">
                                     <div class="col-3 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
-                                        <div class="d-flex align-items-center justify-content-center game padding_none">
-                                            <a href="{{ route('games', $game->id) }}">
-                                                <img class="full_width" src="{{ $game->image_path }}">
-                                            </a>
-                                        </div>
+                                        <a class="box1" href="{{ route('games', $game->id) }}">
+                                            <img class="box1_image" src="{{ $game->image_path }}">
+                                        </a>
                                     </div>
                                     <div class="col-4 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center padding_none_576">
                                         <div class="d-flex justify-content-center align-items-center">

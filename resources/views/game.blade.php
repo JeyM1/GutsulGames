@@ -16,8 +16,8 @@
                 </div>
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-center justify-content-xl-start flex-wrap flex-xl-nowrap">
-                        <div class="d-flex align-items-center justify-content-center game">
-                            <img class="padding_bottom_20 image_width_370" src="{{ $game->image_path }}">
+                        <div class="d-flex align-items-center justify-content-center game box2">
+                            <img class="box2_image" src="{{ $game->image_path }}">
                         </div>
                         <div class="d-flex justify-content-start flex-column">
                             <p class="main_text padding_left_10 text_align_left text_purple font_25">
