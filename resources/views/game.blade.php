@@ -54,7 +54,7 @@
                                         <!-- User hasnt this game -->
                                         <a class="button_main button_buy font_20" href="{{ route('add_game', $game->id) }}">Придбати зараз</a>
                                     @else
-                                        <a class="button_main button_buy font_20" href="">Грати зараз!</a>
+                                        <a class="button_main button_buy font_20" href="{{ route($playroute, $game->id) }}">Грати зараз!</a>
                                     @endif
                                 @endguest
                             </div>
