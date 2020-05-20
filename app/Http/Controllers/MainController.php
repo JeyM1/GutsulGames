@@ -14,8 +14,8 @@ class MainController extends Controller
     public function index()
     {
         $bestsellers = Game::orderBy('purchase_count', 'DESC')->take(4)->get();
-        $online_games = Type::where('name', 'online')->first()->games;
-        $soon_games = Type::where('name', 'soon')->first()->games;
+        $online_games = Type::where('name', 'online')->first()->games->take(4);
+        $soon_games = Type::where('name', 'soon')->first()->games->take(4);
         return view('main', ['bestsellers' => $bestsellers, 'online_games' => $online_games, 'soon_games' => $soon_games]);
     }
 

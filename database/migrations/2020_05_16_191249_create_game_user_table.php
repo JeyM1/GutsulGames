@@ -22,6 +22,8 @@ class CreateGameUserTable extends Migration
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('game_id')->references('id')->on('games');
+
+            $table->primary(['user_id', 'game_id']);
         });
     }
 
