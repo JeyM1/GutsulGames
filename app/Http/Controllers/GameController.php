@@ -20,11 +20,11 @@ class GameController extends Controller
         $user = Auth::user();
         
         if(!$user->has_game($gameid)) {
-            return redirect()->to('users', $user->id)->with(['error_notify' => "Ви не можете грати в гру якщо вона у Вас не придбана!"]);
+            return redirect()->route('users', $user->id)->with(['error_notify' => "Ви не можете грати в гру якщо вона у Вас не придбана!"]);
         }
 
         if(!$game->types->contains(Type::where('name', 'online')->first())){
-            return redirect()->to('games', $game->id)->with(['error_notify' => "Ця гра не передбачає можливості грати онлайн. Ви можете завантажити цю гру собі і грати офлайн!"]);
+            return redirect()->route('games', $game->id)->with(['error_notify' => "Ця гра не передбачає можливості грати онлайн. Ви можете завантажити цю гру собі і грати офлайн!"]);
         }
 
         return view('layouts.onlinegame', ['game' => $game]);
