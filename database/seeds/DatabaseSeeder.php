@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
         DB::table('types')->insert(['name' => "online"]);
         DB::table('types')->insert(['name' => "soon"]);
 
+        DB::table('roles')->insert(['name' => "admin", 'permissions' => 999]);
+        DB::table('roles')->insert(['name' => "moderator", 'permissions' => 500]);
+        DB::table('roles')->insert(['name' => "publisher", 'permissions' => 111]);
+
         // adding test games
         factory(App\Game::class, 10)->create();
     }

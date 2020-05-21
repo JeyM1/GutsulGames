@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class CreateGameTypeTable extends Migration
 {
-    protected $primaryKey = ['game_id', 'type_id'];
-    public $incrementing = false;
-
     /**
      * Run the migrations.
      *
