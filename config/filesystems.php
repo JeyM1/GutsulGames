@@ -65,6 +65,11 @@ return [
             'endpoint' => env('AWS_ENDPOINT'),
         ],
 
+        'games' => [
+            'driver' => 'local',
+            'root' => public_path('/games'),
+        ],
+
     ],
 
     /*
