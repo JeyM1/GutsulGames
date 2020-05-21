@@ -45,6 +45,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Game');
     }
 
+    public function roles() {
+        return $this->belongsToMany('App\User');
+    }
+
     public function add_game($gameid) {
         $gameuser = new GameUser();
         $gameuser->game_id = $gameid;
