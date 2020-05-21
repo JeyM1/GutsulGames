@@ -6,6 +6,12 @@
   box-shadow: 0 0 12px #1C1C1C !important;
   -webkit-box-shadow: 0 0 12px #1C1C1C !important;
 }
+a,
+a:visited,
+a:hover {
+  color: white;
+  text-decoration: none !important;
+}
 .full_heigth_block {
   min-height: calc(100vh - 78px - 139px - 135px);
 }
@@ -240,12 +246,6 @@ body {
   font-family: 'Raleway';
   font-weight: 600;
   font-size: 30px;
-}
-a,
-a:visited,
-a:hover {
-  color: white;
-  text-decoration: none !important;
 }
 .header {
   height: 78px !important;

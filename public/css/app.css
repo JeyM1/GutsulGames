@@ -170,7 +170,7 @@ sup {
 }
 
 a {
-  /*color: #3490dc;*/
+  color: #3490dc;
   text-decoration: none;
   background-color: transparent;
 }
@@ -10880,5 +10880,9 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+a {
+  color: white;
 }
 

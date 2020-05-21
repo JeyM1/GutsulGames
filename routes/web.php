@@ -31,3 +31,4 @@ Route::get('/remove_game/{gameid}', 'CartController@removeFromUserCart')->name('
 
 /* Games routes */
 Route::get('/play/{id}', 'GameController@play_online')->name('play');
+Route::get('/download/{id}', 'GameController@download')->name('download');
