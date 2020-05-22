@@ -29,6 +29,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @notify_css
 
+    @yield('head_content')
 </head>
 <body>
     <div id="app">

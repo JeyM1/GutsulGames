@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Game;
 use App\Type;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class GameController extends Controller
@@ -68,8 +69,10 @@ class GameController extends Controller
             $zip->close();
         }
 
-        $file = "/offline/$game->id/download/$game->name.zip";
-
-        return Storage::disk('games')->download($file, "$game->name.zip", ['location' => route('games', $game->id)]);
+        $file = public_path("games/offline/$game->id/download/$game->name.zip");
+        Session::flash('download.in.the.next.request', $file);
+        //notify()->success("Гра '$game->name' буде скачана на ваш комп'ютер!");
+        //return Storage::disk('games')->download($file, "$game->name.zip", ['location' => route('games', $game->id), 'refresh' => 0]);
+        return redirect()->route('games', $game->id)->with(['success_notify' => "Гра '$game->name' буде скачана на ваш комп'ютер!"]);
     }
 }

@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('title', "$game->name - GutsulGames")
+
+@section('head_content')
+@if(Session::has('download.in.the.next.request'))
+    <meta http-equiv="refresh" content="5;url={{ Session::get('download.in.the.next.request') }}">
+@endif
+@endsection
 
 @section('content')
     <div class="container-fluid">
