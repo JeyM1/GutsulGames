@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'GutsulGames')
 
 @section('content')
     <div id="main_page">

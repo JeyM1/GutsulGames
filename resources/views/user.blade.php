@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', "$user->name - GutsulGames")
 
 @section('content')
     <div class="container-fluid">

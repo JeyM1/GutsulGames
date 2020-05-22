@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'About GutsulGames - best Ukrainian game shop')
 
 @section('content')
 <div class="container-fluid">
