@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Game;
 use App\Type;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -38,20 +39,26 @@ class GameController extends Controller
             abort(404, 'Game not found.');
         }
         $user = Auth::user();
+
+        if(!$user) {
+            abort(401, 'Unauthorized.');
+        }
         
         if(!$user->has_game($gameid)) {
-            // user hasn't bought this game
-            return redirect()->route('users', $user->id)->with(['error_notify' => "Ви не можете скачати гру якщо вона у Вас не придбана!"]);
+            return response()
+                    ->json("Forbidden", 403, ['message' => 'Ви не можете скачати гру якщо вона у Вас не придбана!', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
         }
 
+        /* Delete because unused anymore
         if($game->types->contains(Type::where('name', 'online')->first())) {
             // if this game can be played online, redirect to online version
             return redirect()->route('play', $game->id);
-        }
+        }*/
 
         if($game->types->contains(Type::where('name', 'soon')->first())) {
-            // if game not ready, return back and notify user
-            return redirect()->route('games', $game->id)->with(['error_notify' => "Нажаль, гра '$game->name' поки що недоступна для скачування, перевірте дату релізу!"]);
+            $error_msg = "Нажаль, гра '$game->name' поки що недоступна для скачування, перевірте дату релізу!";
+            return response()
+                    ->json("Forbidden", 403, ['message' => $error_msg, 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
         }
 
         if(!Storage::disk('games')->exists("/offline/$game->id/download/$game->name.zip")) {
@@ -69,10 +76,11 @@ class GameController extends Controller
             $zip->close();
         }
 
-        $file = public_path("games/offline/$game->id/download/$game->name.zip");
-        Session::flash('download.in.the.next.request', $file);
+        //$file = public_path("games/offline/$game->id/download/$game->name.zip");
+        $file = "/offline/$game->id/download/$game->name.zip";
         //notify()->success("Гра '$game->name' буде скачана на ваш комп'ютер!");
         //return Storage::disk('games')->download($file, "$game->name.zip", ['location' => route('games', $game->id), 'refresh' => 0]);
-        return redirect()->route('games', $game->id)->with(['success_notify' => "Гра '$game->name' буде скачана на ваш комп'ютер!"]);
+        return Storage::disk('games')->download($file);
+        //return redirect()->route('games', $game->id)->with(['success_notify' => "Гра '$game->name' буде скачана на ваш комп'ютер!"]);
     }
 }

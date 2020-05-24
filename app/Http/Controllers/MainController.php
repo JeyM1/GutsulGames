@@ -68,7 +68,7 @@ class MainController extends Controller
 
         return view('game', [
             'game' => $game, 
-            'playroute' => $game->types->contains(Type::where('name', 'online')->first()) ? "play" : "download"
+            //'playroute' => $game->types->contains(Type::where('name', 'online')->first()) ? "play" : "download"
             ]);
     }
 }

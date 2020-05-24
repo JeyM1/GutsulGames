@@ -2,12 +2,6 @@
 
 @section('title', "$game->name - GutsulGames")
 
-@section('head_content')
-@if(Session::has('download.in.the.next.request'))
-    <meta http-equiv="refresh" content="5;url={{ Session::get('download.in.the.next.request') }}">
-@endif
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <div class="row bg_black justify-content-center">
@@ -69,7 +63,43 @@
                                         <!-- User hasnt this game -->
                                         <a class="button_main button_buy font_20" href="{{ route('add_game', $game->id) }}">Придбати зараз</a>
                                     @else
-                                        <a class="button_main button_buy font_20" href="{{ route($playroute, $game->id) }}">Грати зараз!</a>
+                                        @if($game->is_online())
+                                            <a class="button_main button_buy font_20" href="{{ route('play', $game->id) }}">Грати зараз!</a>
+                                        @else
+                                            <button class="button_main button_buy font_20" id="download" onclick="javascript:download()">Скачати гру!</button>
+                                            @push('footer_scripts')
+                                                <script type="application/javascript">
+                                                    function download() {
+                                                        $.ajax({
+                                                            url: "/download/{!! $game->id !!}",
+                                                            dataType: 'binary',
+                                                            xhrFields: {
+                                                                'responseType': 'blob'
+                                                            },
+                                                            type: 'POST',
+                                                            //contentType:"blob; charset=utf-8",
+                                                            //cache: 'no-cache',
+                                                            //mode: 'no-cors',
+                                                            //responseType: 'blob',
+                                                            data: {"_token": $('meta[name="csrf-token"]').attr('content')},
+                                                            success: function(data, status, xhr) {
+                                                                var blob = new Blob([data], {type: xhr.getResponseHeader('Content-Type')});
+                                                                var link = document.createElement('a');
+                                                                link.href = window.URL.createObjectURL(blob);
+                                                                link.download = "{!! $game->name !!}.zip";
+                                                                link.click();
+                                                                link.remove();
+                                                                toastr.success("Гра '{!! $game->name !!}' буде скачана на ваш комп'ютер!", "Успіх!");
+                                                            },
+                                                            error: function(xhr, status, error) {
+                                                                var message = decodeURIComponent(escape(xhr.getResponseHeader('message')));
+                                                                toastr.error(message, 'Помилка!');
+                                                            }
+                                                        });
+                                                    };
+                                                </script>
+                                            @endpush
+                                        @endif
                                     @endif
                                 @endguest
                             </div>
@@ -80,5 +110,7 @@
             </div>
         </div>
     </div>
+
+        
 
 @endsection
