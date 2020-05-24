@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\TypeRequest;
+use App\Http\Requests\UserRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class TypeCrudController
+ * Class UserCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class TypeCrudController extends CrudController
+class UserCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -21,26 +21,23 @@ class TypeCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Type');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/type');
-        $this->crud->setEntityNameStrings('type', 'types');
+        $this->crud->setModel('App\Models\User');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/user');
+        $this->crud->setEntityNameStrings('user', 'users');
     }
 
     protected function setupListOperation()
     {
-        $this->crud->setColumns([['name' => 'name', 'label' => 'Ігровий тип']]);
-        //$this->crud->setColumnLabel()
+        // TODO: remove setFromDb() and manually define Columns, maybe Filters
+        $this->crud->setFromDb();
     }
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(TypeRequest::class);
+        $this->crud->setValidation(UserRequest::class);
 
-        $this->crud->addField([
-            'name' => 'name',
-            'type' => 'text',
-            'label' => 'Ігровий тип'
-          ]);
+        // TODO: remove setFromDb() and manually define Fields
+        $this->crud->setFromDb();
     }
 
     protected function setupUpdateOperation()

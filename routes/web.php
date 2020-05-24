@@ -32,3 +32,9 @@ Route::get('/remove_game/{gameid}', 'CartController@removeFromUserCart')->name('
 /* Games routes */
 Route::get('/play/{id}', 'GameController@play_online')->name('play');
 Route::post('/download/{id}', 'GameController@download')->name('download');
+
+/* Admin panel routes */
+Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_prefix')], function () {
+    Route::auth();
+    Route::get('logout', 'Auth\LoginController@logout');
+});
