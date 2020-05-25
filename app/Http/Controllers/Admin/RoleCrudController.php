@@ -21,7 +21,7 @@ class RoleCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Role');
+        $this->crud->setModel('App\Role');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/role');
         $this->crud->setEntityNameStrings('role', 'roles');
     }
@@ -29,15 +29,18 @@ class RoleCrudController extends CrudController
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        $this->crud->setColumns([
+            ['name' => 'name', 'label' => 'Назва ролі'],
+            ['name' => 'permissions', 'label' => 'Повноваження']
+           ]);
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(RoleRequest::class);
 
-        // TODO: remove setFromDb() and manually define Fields
-        $this->crud->setFromDb();
+        $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Назва гри']);
+        $this->crud->addField(['name' => 'permissions', 'type' => 'number', 'label' => 'Повноваження']);
     }
 
     protected function setupUpdateOperation()

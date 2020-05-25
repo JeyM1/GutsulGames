@@ -21,7 +21,7 @@ class GameCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Game');
+        $this->crud->setModel('App\Game');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/game');
         $this->crud->setEntityNameStrings('game', 'games');
     }
@@ -43,7 +43,7 @@ class GameCrudController extends CrudController
     {
         $this->crud->setValidation(GameRequest::class);
 
-        // TODO: remove setFromDb() and manually define Fields
+        // TODO: adding images and tags
         $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Назва гри']);
         $this->crud->addField(['name' => 'price', 'type' => 'number', 'label' => 'Ціна гри']);
         $this->crud->addField(['name' => 'developer', 'type' => 'text', 'label' => 'Розробник']);

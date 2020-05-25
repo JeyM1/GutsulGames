@@ -34,7 +34,7 @@ Route::get('/play/{id}', 'GameController@play_online')->name('play');
 Route::post('/download/{id}', 'GameController@download')->name('download');
 
 /* Admin panel routes */
-Route::group(['middleware' => 'web', 'prefix' => config('backpack.base.route_prefix')], function () {
+Route::group(['middleware' => 'web'/*, 'prefix' => config('backpack.base.route_prefix')*/], function () {
     Route::auth();
-    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get(config('backpack.base.route_prefix')."/logout", 'Auth\LoginController@logout');
 });

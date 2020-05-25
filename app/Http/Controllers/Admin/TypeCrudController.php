@@ -21,7 +21,7 @@ class TypeCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\Type');
+        $this->crud->setModel('App\Type');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/type');
         $this->crud->setEntityNameStrings('type', 'types');
     }

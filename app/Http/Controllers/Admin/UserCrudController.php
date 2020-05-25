@@ -21,23 +21,41 @@ class UserCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel('App\Models\User');
+        $this->crud->setModel('App\User');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/user');
         $this->crud->setEntityNameStrings('user', 'users');
     }
 
     protected function setupListOperation()
     {
-        // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        $this->crud->setColumns([
+            ['name' => 'name', 'label' => 'Ім\'я користувача'],
+            ['name' => 'email', 'label' => 'Електронна пошта'],
+            ['name'      => 'roles',
+             'label'     => 'Ролі користувача',
+             'entity'    => 'roles',
+             'attribute' => 'name',
+             'model'     => "App\Role",
+             'pivot'     => true]
+           ]);
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(UserRequest::class);
 
-        // TODO: remove setFromDb() and manually define Fields
-        $this->crud->setFromDb();
+        $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Ім\'я користувача']);
+        $this->crud->addField(['name' => 'email', 'type' => 'email', 'label' => 'Електронна пошта']);
+        $this->crud->addField([ 'name'      => 'roles',
+                                'label'     => 'Ролі користувача',
+                                'type'      => 'checklist',
+                                'entity'    => 'roles',
+                                'attribute' => 'name',
+                                'model'     => "App\Role",
+                                'pivot'     => true,
+                            ]);
+
+        
     }
 
     protected function setupUpdateOperation()
