@@ -70,6 +70,11 @@ return [
             'root' => public_path('/games'),
         ],
 
+        'games_images' => [
+            'driver' => 'local',
+            'root' => public_path('/images/games'),
+        ],
+
     ],
 
     /*

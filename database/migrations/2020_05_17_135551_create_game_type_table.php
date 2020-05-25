@@ -19,8 +19,8 @@ class CreateGameTypeTable extends Migration
             $table->bigInteger('type_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('game_id')->references('id')->on('games');
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
 
             $table->primary(['game_id', 'type_id']);
         });

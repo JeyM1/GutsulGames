@@ -36,8 +36,17 @@ class UserCrudController extends CrudController
              'entity'    => 'roles',
              'attribute' => 'name',
              'model'     => "App\Role",
-             'pivot'     => true]
-           ]);
+             'pivot'     => true
+            ],
+            ['name'      => 'games',
+             'label'     => 'Ігри користувача (id)',
+             'entity'    => 'games',
+             'type'      => 'select',
+             'attribute' => 'id',
+             'model'     => "App\Game",
+             'pivot'     => true
+            ]
+        ]);
     }
 
     protected function setupCreateOperation()
@@ -54,12 +63,23 @@ class UserCrudController extends CrudController
                                 'model'     => "App\Role",
                                 'pivot'     => true,
                             ]);
-
-        
+        $this->crud->addField([ 'name'      => 'games',
+                                'label'     => 'Ігри користувача',
+                                'type'      => 'select2_multiple',
+                                'entity'    => 'games',
+                                'attribute' => 'name',
+                                'model'     => "App\Game",
+                                'pivot'     => true
+                            ]);
     }
 
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    protected function setupShowOperation()
+    {
+        $this->setupListOperation();
     }
 }

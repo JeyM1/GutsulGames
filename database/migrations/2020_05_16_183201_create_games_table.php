@@ -22,8 +22,8 @@ class CreateGamesTable extends Migration
             $table->text('developer');
             $table->text('publisher');
             $table->date('release_date');
-            $table->text('image_path');
-            $table->text('game_path');
+            $table->text('image_path')->default('/images/games/noimage.png');
+            $table->text('game_path')->nullable()->default(null);
             $table->timestamps();
         });
     }
