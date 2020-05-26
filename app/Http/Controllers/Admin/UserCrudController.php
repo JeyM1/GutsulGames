@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\UserRequest;
+use App\Role;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -47,6 +48,21 @@ class UserCrudController extends CrudController
              'pivot'     => true
             ]
         ]);
+
+        // Filter for roles
+        $this->crud->addFilter([
+            'name'  => 'types',
+            'type'  => 'select2_multiple',
+            'label' => 'Ролі користувача'
+            ], function() {
+                return Role::all()->pluck('name', 'id')->toArray();
+            }, function($values) {
+                foreach (json_decode($values) as $key => $value) {
+                    $this->crud->query = $this->crud->query->whereHas('roles', function ($query) use ($value) {
+                        $query->where('role_id', $value);
+                    });
+                }
+            });
     }
 
     protected function setupCreateOperation()

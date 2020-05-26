@@ -6,8 +6,6 @@ use App\Http\Requests\GameRequest;
 use App\Type;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
-use DB;
-use Illuminate\Support\Facades\Log;
 
 /**
  * Class GameCrudController
@@ -47,15 +45,57 @@ class GameCrudController extends CrudController
                                   'model'     => "App\Type",
                                   'pivot'     => true
                                  ],
-                                 ['name' => 'description', 'label' => 'Опис гри'],
-                                ]);
+                                 //['name' => 'description', 'label' => 'Опис гри'],
+        ]);
+        
+        // Filter for game names
+        $this->crud->addFilter([
+            'type'  => 'text',
+            'name'  => 'name',
+            'label' => 'Назва гри'
+            ], 
+            false, 
+            function($value) {
+                $this->crud->addClause('where', 'name', 'LIKE', "%$value%");
+            });
+        // Filter for prices
+        $this->crud->addFilter([
+            'name'       => 'price',
+            'type'       => 'range',
+            'label'      => 'Ціновий діапазон',
+            'label_from' => 'Мінімальна ціна',
+            'label_to'   => 'Максимальна ціна'
+          ],
+          false,
+          function($value) { // if the filter is active
+              $range = json_decode($value);
+              if ($range->from) {
+                  $this->crud->addClause('where', 'price', '>=', (float) $range->from);
+              }
+              if ($range->to) {
+                  $this->crud->addClause('where', 'price', '<=', (float) $range->to);
+              }
+          });
+        // Filter for game types
+        $this->crud->addFilter([
+            'name'  => 'types',
+            'type'  => 'select2_multiple',
+            'label' => 'Ігрові теги'
+            ], function() {
+                return Type::all()->pluck('name', 'id')->toArray();
+            }, function($values) {
+                foreach (json_decode($values) as $key => $value) {
+                    $this->crud->query = $this->crud->query->whereHas('types', function ($query) use ($value) {
+                        $query->where('type_id', $value);
+                    });
+                }
+            });
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(GameRequest::class);
 
-        // TODO: adding images and tags
         $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Назва гри']);
         $this->crud->addField(['name' => 'price', 'type' => 'number', 'label' => 'Ціна гри']);
         $this->crud->addField(['name' => 'developer', 'type' => 'text', 'label' => 'Розробник']);
@@ -67,9 +107,13 @@ class GameCrudController extends CrudController
                                'attribute' => 'name',
                                'model'     => "App\Type",
                                'pivot'     => true
-                            ]);
+        ]);
         $this->crud->addField(['name' => 'release_date', 'type' => 'date', 'label' => 'Дата релізу']);
-        $this->crud->addField(['name' => 'description', 'type' => 'text', 'label' => 'Опис гри']);
+        $this->crud->addField(['name'       => 'description',
+                               'type'       => 'tinymce', 
+                               'label'      => 'Опис гри', 
+                               'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
+        ]);
         $this->crud->addField([ 'name'          => 'image_path', 
                                 'type'          => 'image', 
                                 'label'         => 'Обкладинка гри',
@@ -78,7 +122,7 @@ class GameCrudController extends CrudController
                                 'aspect_ratio'  => 0, // ommit or set to 0 to allow any aspect ratio
                                 //'disk'          => 'games_images',
                                 //'prefix'        => ''
-                            ]);
+        ]);
     }
 
     protected function setupUpdateOperation()
@@ -89,13 +133,18 @@ class GameCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
+        $this->crud->addField(['name'       => 'description',
+                               'type'       => 'tinymce', 
+                               'label'      => 'Опис гри', 
+                               //'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
+        ]);
         $this->crud->addColumn(['name'      => 'image_path',
                                 'label'     => 'Обкладинка гри', 
                                 'type'      => 'image',
                                 'height' => '350px',
                                 'width'  => '200px',
                                 //'disk'   => 'games_images'
-                            ]);
+        ]);
     }
 
     /*public function store()

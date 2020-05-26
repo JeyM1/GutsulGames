@@ -9,6 +9,10 @@ class Type extends Model
 {
     use CrudTrait;
     
+    protected $fillable = [
+        'name'
+    ];
+
     public function games() {
         return $this->belongsToMany('App\Game');
     }
