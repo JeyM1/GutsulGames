@@ -49,6 +49,28 @@ class UserCrudController extends CrudController
             ]
         ]);
 
+        // Filter for user names
+        $this->crud->addFilter([
+            'type'  => 'text',
+            'name'  => 'name',
+            'label' => 'Ім\'я користувача'
+            ], 
+            false, 
+            function($value) {
+                $this->crud->addClause('where', 'name', 'LIKE', "%$value%");
+            });
+        
+        // Filter for user email
+        $this->crud->addFilter([
+            'type'  => 'text',
+            'name'  => 'email',
+            'label' => 'Електронна пошта користувача'
+            ], 
+            false, 
+            function($value) {
+                $this->crud->addClause('where', 'email', 'LIKE', "%$value%");
+            });
+
         // Filter for roles
         $this->crud->addFilter([
             'name'  => 'types',

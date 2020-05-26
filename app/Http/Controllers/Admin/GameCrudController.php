@@ -109,11 +109,6 @@ class GameCrudController extends CrudController
                                'pivot'     => true
         ]);
         $this->crud->addField(['name' => 'release_date', 'type' => 'date', 'label' => 'Дата релізу']);
-        $this->crud->addField(['name'       => 'description',
-                               'type'       => 'tinymce', 
-                               'label'      => 'Опис гри', 
-                               'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
-        ]);
         $this->crud->addField([ 'name'          => 'image_path', 
                                 'type'          => 'image', 
                                 'label'         => 'Обкладинка гри',
@@ -122,6 +117,12 @@ class GameCrudController extends CrudController
                                 'aspect_ratio'  => 0, // ommit or set to 0 to allow any aspect ratio
                                 //'disk'          => 'games_images',
                                 //'prefix'        => ''
+        ]);
+        $this->crud->addField(['name'       => 'description',
+                               'type'       => 'tinymce', 
+                               'label'      => 'Опис гри', 
+                               'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
+        
         ]);
     }
 

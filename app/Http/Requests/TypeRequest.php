@@ -38,7 +38,7 @@ class TypeRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'name' => 'Назва типу'
         ];
     }
 

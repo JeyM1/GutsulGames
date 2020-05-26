@@ -40,6 +40,8 @@ class RoleRequest extends FormRequest
     {
         return [
             //
+            'name' => 'Назва ролі',
+            'permissions' => 'Повноваження'
         ];
     }
 

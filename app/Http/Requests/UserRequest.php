@@ -37,9 +37,10 @@ class UserRequest extends FormRequest
      * @return array
      */
     public function attributes()
-    {
+    {   
         return [
-            //
+            'name' => 'Ім\'я користувача',
+            'email' => 'Електронна пошта'
         ];
     }
 

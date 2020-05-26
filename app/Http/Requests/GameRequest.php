@@ -43,6 +43,11 @@ class GameRequest extends FormRequest
     {
         return [
             //
+            'name' => 'Назва гри',
+            'price' => 'Ціна гри',
+            'release_date' => 'Дата релізу',
+            'developer' => 'Видавець',
+            'description' =>'Опис гри'
         ];
     }
 
