@@ -75,7 +75,7 @@
                             @foreach ($bestsellers as $game)
                                 <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                                     <a class="box" href="{{ route('games', $game->id) }}">
-                                        <img class="box_image" src="{{ $game->image_path }}">
+                                        <img class="box_image" src="{{ $game->image_path ?? "/images/games/noimage.png" }}">
                                     </a>
                                     <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
                                         {{ $game->name }}
@@ -103,7 +103,7 @@
                             @foreach ($online_games as $game)
                                 <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                                     <a class="box" href="{{ route('games', $game->id) }}">
-                                        <img class="box_image" src="{{ $game->image_path }}">
+                                        <img class="box_image" src="{{ $game->image_path ?? "/images/games/noimage.png" }}">
                                     </a>
                                     <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
                                         {{ $game->name }}
@@ -129,7 +129,7 @@
                             @foreach ($soon_games as $game)
                                 <div class="col-10 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center flex-column">
                                     <a class="box" href="{{ route('games', $game->id) }}">
-                                        <img class="box_image" src="{{ $game->image_path }}">
+                                        <img class="box_image" src="{{ $game->image_path ?? "/images/games/noimage.png" }}">
                                     </a>
                                     <a class="game_text text-center text-md-left" href="{{ route('games', $game->id) }}">
                                         {{ $game->name }}
@@ -164,19 +164,6 @@
                 </form>
             </div>
         </div>
-        <!--<div class="row bg_purple justify-content-center">
-            <div class="content_block col-md-10 col-xs-12">
-                <p class="text_yellow main_text font_30">
-                    ПІДПИСУЙСЯ НА НАШІ НОВИНИ ТА БУДЬ У КУРСІ СПЕЦІАЛЬНИХ ПРОПОЗИЦІЙ
-                </p>
-                <div class="d-flex justify-content-center padding_bottom_20">
-                    <a class="button_main button_mail text_yellow" href="">Електронна пошта...</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a class="button_main button_register text_yellow" href="">Продовжити</a>
-                </div>
-            </div>
-        </div>-->
     </div>
 
 @endsection

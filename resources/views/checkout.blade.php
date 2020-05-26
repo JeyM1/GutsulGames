@@ -39,7 +39,7 @@
                                     <div class="row">
                                         <div class="col-3 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center">
                                             <a class="box1" href="{{ route('games', $game->id) }}">
-                                                <img class="box1_image" src="{{ $game->image_path }}">
+                                                <img class="box1_image" src="{{ $game->image_path ?? "/images/games/noimage.png" }}">
                                             </a>
                                         </div>
                                         <div class="col-4 col-sm-4 col-md-4 col-xs-12 d-flex justify-content-start align-items-center padding_none_576">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Game;
 use App\Type;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
 
         // adding test games
         factory(App\Game::class, 10)->create();
+        
     }
 }

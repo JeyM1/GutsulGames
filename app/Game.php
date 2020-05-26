@@ -31,9 +31,8 @@ class Game extends Model
         $attribute_name = "image_path";
         // Also setting here game path (test)
         //$this->attributes['game_path'] = "/".$this->types()->where('name', 'online')->first() ? "online" : "offline".$this->id;
-        Log::debug("Got in setImagePathAttribute");
         $disk = 'games_images';
-        $gameid = DB::select("SHOW TABLE STATUS LIKE 'games'")[0]->Auto_increment;
+        $gameid = $this->id ?? DB::select("SHOW TABLE STATUS LIKE 'games'")[0]->Auto_increment;
 
         // if the image was erased
         if ($value==null) {
@@ -41,10 +40,10 @@ class Game extends Model
             Storage::disk($disk)->delete($this->{$attribute_name});
 
             // set null in the database column
-            $this->attributes[$attribute_name] = "noimage.png";
+            $this->attributes[$attribute_name] = null;
         }
 
-        // if a base64 was sent, store it in the db
+        // if a base64 was sent, store path in the db
         if (Str::startsWith($value, 'data:image')) {
             // 0. Make the image
             $image = Image::make($value)->encode('jpg', 90);
@@ -72,7 +71,7 @@ class Game extends Model
     {
         parent::boot();
         static::deleting(function($obj) {
-            Storage::disk('games_images')->delete($obj->image_path);
+            Storage::disk('games_images')->delete(explode('/images/games', "$obj->image_path"));
         });
     }
 }

@@ -70,13 +70,14 @@ class GameCrudController extends CrudController
                             ]);
         $this->crud->addField(['name' => 'release_date', 'type' => 'date', 'label' => 'Дата релізу']);
         $this->crud->addField(['name' => 'description', 'type' => 'text', 'label' => 'Опис гри']);
-        $this->crud->addField([ 'name' => 'image_path', 
-                                'type' => 'image', 
-                                'label' => 'Обкладинка гри',
-                                'upload'       => true,
-                                'crop'         => true, // set to true to allow cropping, false to disable
-                                'aspect_ratio' => 0, // ommit or set to 0 to allow any aspect ratio
-                                'disk'    => 'games_images'
+        $this->crud->addField([ 'name'          => 'image_path', 
+                                'type'          => 'image', 
+                                'label'         => 'Обкладинка гри',
+                                'upload'        => true,
+                                'crop'          => true, // set to true to allow cropping, false to disable
+                                'aspect_ratio'  => 0, // ommit or set to 0 to allow any aspect ratio
+                                //'disk'          => 'games_images',
+                                //'prefix'        => ''
                             ]);
     }
 
