@@ -20,10 +20,10 @@ class CreateGamesTable extends Migration
             $table->bigInteger('purchase_count')->default(0);
             $table->longText('description');
             $table->text('developer');
-            $table->text('publisher');
+            $table->text('publisher')->nullable();
             $table->date('release_date');
-            $table->text('image_path');
-            $table->text('game_path');
+            $table->text('image_path')->nullable();//default('/images/games/noimage.png');
+            $table->text('game_path')->nullable()->default(null);
             $table->timestamps();
         });
     }

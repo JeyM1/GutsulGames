@@ -11,9 +11,9 @@ $factory->define(Game::class, function (Faker $faker) {
         'name' => $faker->name,
         'description' => $faker->text,
         'developer' => $faker->name,
-        'publisher' => '',
+        'publisher' => 'GutsulGames',
         'release_date' => $faker->date,
-        'image_path' => '\images\games\test\\'.rand(1, 14).'.png',
-        'game_path' => '\\'
+        //'image_path' => '\images\games\test\\'.rand(1, 14).'.png',
+        //'game_path' => '\\'
     ];
 });

@@ -20,8 +20,8 @@ class CreateGameUserTable extends Migration
             $table->time('overall_time')->nullable();
             $table->timestamps();
             
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
 
             $table->primary(['user_id', 'game_id']);
         });

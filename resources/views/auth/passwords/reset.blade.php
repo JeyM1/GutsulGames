@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Set New Password - GutsulGames')
+
 @section('content')
 <div id="login_page">
     <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4 d-flex justify-content-center align-items-center flex-column login_bg margin_sides_20">

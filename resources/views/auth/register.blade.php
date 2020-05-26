@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+@section('title', 'Register - GutsulGames')
 
 @section('content')
 <div id="login_page">

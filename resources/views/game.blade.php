@@ -18,15 +18,15 @@
                 <div class="container-fluid">
                     <div class="row align-items-start justify-content-center justify-content-xl-start flex-wrap flex-xl-nowrap">
                         <div class="d-flex align-items-center justify-content-center game box2">
-                            <img class="box2_image" src="{{ $game->image_path }}">
+                            <img class="box2_image" src="{{ $game->image_path ?? "/images/games/noimage.png"  }}">
                         </div>
-                        <div class="d-flex justify-content-start flex-column">
+                        <div class="d-flex justify-content-start flex-column full_width">
                             <p class="main_text padding_left_10 text_align_left text_purple font_25">
                                 {{ $game->name }}
                             </p>
-                            <p class="main_text padding_left_10 text_align_left font_17">
-                                {{ $game->description }}
-                            </p>
+                            <div class="main_text padding_left_10 text_align_left font_17 full_width">
+                                {!! $game->description !!}
+                            </div>
                             @if($game->developer)
                                 <p class="main_text padding_left_10 text_align_left font_20">
                                     <span class="text_purple">Розробник:</span> {{ $game->developer }} 
