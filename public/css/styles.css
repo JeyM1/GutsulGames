@@ -124,6 +124,9 @@ a:hover {
     font-size: 15px !important;
   }
 }
+.font_25_static {
+  font-size: 25px !important;
+}
 .font_35 {
   font-size: 35px !important;
 }
@@ -250,6 +253,7 @@ body {
 .header {
   height: 78px !important;
   background-color: #454955 !important;
+  z-index: 11;
 }
 .header_links {
   width: 250px;
@@ -257,6 +261,29 @@ body {
 .header_links a {
   margin-top: 7px;
   font-size: 17px;
+}
+#mob-menu {
+  position: fixed;
+  width: 300px;
+  background-color: #3a3d47;
+  padding-top: 78px;
+  left: -100%;
+  top: 0;
+  height: 100vh;
+  z-index: 10;
+  transition: left 0.5s;
+}
+#mob-menu.is-active {
+  left: 0;
+}
+#back_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 .logo {
   font-size: 35px !important;
@@ -321,13 +348,16 @@ body {
   padding: 5px 0 !important;
   border-radius: 30px;
 }
+.button_login_register {
+  width: 260px !important;
+}
 #login {
   width: 115px;
   background-color: #9085E3;
 }
 #register {
   width: 115px;
-  background-color: #454955;
+  background-color: transparent;
 }
 #main_page {
   display: flex;

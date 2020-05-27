@@ -1,56 +1,3 @@
-<!--<nav class="navbar navbar-expand-lg header">
-    <div class="container-fluid align-items-center">
-        <a class="navbar-brand logo" href="#">Gutsul Games</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="col-12 d-flex">
-                <div class="nav-item d-inline-flex">
-                    <a class="nav-link" href="#">Головна</a>
-                </div>
-                <div class="nav-item d-inline-flex">
-                    <a class="nav-link" href="#">Каталог</a>
-                </div>
-                <div class="nav-item d-inline-flex">
-                    <a class="nav-link" href="#">Про нас</a>
-                </div>
-                <div>
-                    <a href="#">
-                        <img src="./images/shopping-cart.svg">
-                    </a>
-                    <a href="#">
-                        <img src="./images/search.svg">
-                    </a>
-                </div>
-                <div style="margin-left: auto" class="d-inline-flex  align-self-end">
-                    <a class="button_main" id="login" href="#">Логін</a>
-                </div>
-                <div class="d-inline-flex  align-self-end">
-                    <a class="button_main" id="register" href="#">Реєстрація</a>
-                </div>
-                
-            </div>-->
-            <!--<div class="header_links mr-auto justify-content-between">
-                <div class="nav-item">
-                    <a class="nav-link" href="#">Головна</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">Каталог</a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">Про нас</a>
-                </div>
-            </div>
-            
-            <div class="d-flex col-sm-4 justify-content-between">
-                
-            </div>
-        </div>
-    </div>
-</nav>-->
-
-
 <nav class="navbar navbar-expand-lg header">
     <div class="container-fluid justify-content-center">
         <div class="row col-md-10 col-xs-12 align-items-center padding_none justify-content-between flex-nowrap">
@@ -124,3 +71,39 @@
         </div>
     </div>
 </nav>
+
+<div id="back_layer" class="d-none"></div>
+<div id="mob-menu" class="">
+    <div class="d-flex flex-column justify-content-between align-items-center">
+        <div class="nav-item d-inline-flex padding_top_10">
+            <a class="nav-link font_25_static" href="{{ route('main') }}">Головна</a>
+        </div>
+        <div class="nav-item d-inline-flex">
+            <a class="nav-link font_25_static" href="{{ route('catalog') }}">Каталог</a>
+        </div>
+        <div class="nav-item d-inline-flex">
+            <a class="nav-link font_25_static" href="{{ route('aboutus') }}">Про нас</a>
+        </div>
+        @guest
+            <div style="padding: 8px 16px;">
+                <a class="d-lg-none button_main button_login_register font_static_20" id="login" href="{{ route('login') }}">Логін</a>
+            </div>
+            <div style="padding: 8px 16px;">
+                <a class="d-lg-none button_main button_login_register font_static_20" id="register" href="{{ route('register') }}">Реєстрація</a>
+            </div>
+        @else
+            <hr class="line full_width">
+            <a class="nav-link font_25_static" href="{{ route('users', Auth::user()->id) }}">
+                {{ Auth::user()->name }}
+            </a>
+            <a class="nav-link font_25_static" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                Вийти з аккаунту
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @endguest
+    </div>
+</div>
