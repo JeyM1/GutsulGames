@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>{{ $game->name }} - GutsulGames</title>
-    <link rel="shortcut icon" href="{{ "/games/online/".$game->id."/TemplateData/favicon.ico" }}">
-    <link rel="stylesheet" href="{{ "/games/online/".$game->id."/TemplateData/style.css" }}">
-    <script src="{{ "/games/online/".$game->id."/TemplateData/UnityProgress.js"}}"></script>
+    <link rel="shortcut icon" href="{{ "/games/online/TemplateData/favicon.ico" }}">
+    <link rel="stylesheet" href="{{ "/games/online/TemplateData/style.css" }}">
+    <script src="{{ "/games/online/TemplateData/UnityProgress.js"}}"></script>
     <script src="{{ "/games/online/".$game->id."/Build/UnityLoader.js"}} "></script>
     <script>
       var gameInstance = UnityLoader.instantiate("gameContainer",  "/games/online/" + {!! json_encode($game->id) !!} + "/Build/Build.json", {onProgress: UnityProgress});

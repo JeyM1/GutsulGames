@@ -23,7 +23,7 @@ class CreateGamesTable extends Migration
             $table->text('publisher')->nullable();
             $table->date('release_date');
             $table->text('image_path')->nullable();//default('/images/games/noimage.png');
-            $table->text('game_path')->nullable()->default(null);
+            $table->text('game_path')->nullable();
             $table->timestamps();
         });
     }

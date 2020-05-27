@@ -5,17 +5,18 @@ namespace App;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use ZipArchive;
 
 class Game extends Model
 { 
     use CrudTrait;
 
     protected $fillable = [
-        'name', 'price', 'developer', 'publisher', 'release_date', 'description', 'image_path'
+        'name', 'price', 'developer', 'publisher', 'release_date', 'description', 'image_path', 'game_path'
     ];
 
     public function types() {
@@ -66,11 +67,41 @@ class Game extends Model
         }
     }
 
+    public function setGamePathAttribute($value) {
+        $types = request()->get('types');
+
+        $attribute_name = "game_path";
+        $disk = 'games';
+        $gameid = $this->id ?? DB::select("SHOW TABLE STATUS LIKE 'games'")[0]->Auto_increment;
+        
+        $isgameonline = collect($types)->contains(Type::where('name', 'online')->first()->id);
+        $subfolder = $isgameonline ? "online" : "offline";
+        
+        $destination_path = "$subfolder/$gameid";
+        
+
+        $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
+        
+        // TODO if folder not empty - delete old zip
+
+        if($isgameonline) {
+            $fl = $this->attributes[$attribute_name];
+            $zipfilename = public_path("games/$fl");
+            $zip = new ZipArchive();
+            $zip->open($zipfilename);
+            $zip->extractTo(public_path("$disk/$destination_path").'/Build');
+            $zip->close();
+        }
+    }
+
     public static function boot()
     {
         parent::boot();
         static::deleting(function($obj) {
             Storage::disk('games_images')->delete(explode('/images/games', "$obj->image_path"));
+            $gamepath = explode('/', "$obj->game_path");
+            Storage::disk('games')->delete($obj->game_path);
+            Storage::disk('games')->deleteDirectory($gamepath[0].'/'.$gamepath[1]);
         });
     }
 }
