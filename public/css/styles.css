@@ -573,6 +573,7 @@ body {
 .button_search {
   background-color: transparent;
   border: none;
+  outline: none !important;
 }
 .login_bg {
   background-color: #454955;
