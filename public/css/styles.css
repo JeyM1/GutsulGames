@@ -7,8 +7,7 @@
   -webkit-box-shadow: 0 0 12px #1C1C1C !important;
 }
 a,
-a:visited,
-a:hover {
+a:visited {
   color: white;
   text-decoration: none !important;
 }
@@ -347,6 +346,7 @@ body {
   border: 2px solid #9085E3;
   padding: 5px 0 !important;
   border-radius: 30px;
+  outline: none !important;
 }
 .button_login_register {
   width: 260px !important;
@@ -354,10 +354,20 @@ body {
 #login {
   width: 115px;
   background-color: #9085E3;
+  transition: background-color 0.2s;
+}
+#login:hover {
+  background-color: transparent;
+  color: white;
 }
 #register {
   width: 115px;
+  background-color: #9085E3;
+  transition: background-color 0.2s;
+}
+#register:hover {
   background-color: transparent;
+  color: white;
 }
 #main_page {
   display: flex;
@@ -377,6 +387,10 @@ body {
   width: 304px;
   padding: 15px 0 !important;
   border-radius: 50px;
+  transition: background-color 0.2s;
+}
+#main_page div a:hover {
+  background-color: #4E4EA9;
 }
 @media (max-width: 768px) {
   #main_page {
@@ -418,6 +432,11 @@ body {
 .button_filled {
   background-color: #9085E3;
   padding: 10px 50px !important;
+  transition: background-color 0.2s;
+}
+.button_filled:hover {
+  background-color: transparent;
+  color: #9085E3;
 }
 #why_us {
   font-size: 40px !important;
@@ -475,6 +494,10 @@ body {
   border-color: #FFE500;
   padding: 10px 50px !important;
   border-radius: 50px;
+  transition: background-color 0.2s;
+}
+.button_register:hover {
+  background-color: transparent;
 }
 .button_mail {
   text-align: left;
@@ -622,6 +645,15 @@ input[type=checkbox]:checked:after {
 }
 .button_buy {
   padding: 5px 25px !important;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.2s;
+  outline: none;
+}
+.button_buy:hover {
+  background-color: #9085E3;
+  color: white;
+  outline: none;
 }
 .line {
   height: 1px;
