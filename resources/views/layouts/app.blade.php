@@ -30,7 +30,7 @@
 
     @yield('head_content')
 </head>
-<body>
+<body id="body">
     <div id="app">
         @include('layouts.popup')
         @include('layouts.header')

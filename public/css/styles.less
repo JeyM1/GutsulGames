@@ -123,6 +123,7 @@ a, a:visited, a:hover{
     }
 }
 
+
 .font_static_26{
     font-size: 26px !important;
 }
@@ -137,6 +138,10 @@ a, a:visited, a:hover{
     @media (max-width: 576px) {
         font-size: 15px !important;
     }
+}
+
+.font_25_static{
+    font-size: 25px !important;
 }
 
 .font_35{
@@ -283,14 +288,42 @@ body {
 .header {
     height: 78px !important;
     background-color: @color_bg !important;
+    z-index: 11;
 }
 
-.header_links{
+.header_links {
     width: 250px;
     a {
         margin-top: 7px;
         font-size: 17px;
     }
+}
+
+#mob-menu {
+    position: fixed;
+    width: 300px;
+    background-color: darken(@color_bg, 5%);
+    padding-top: 78px;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    z-index: 10;
+    transition: left 0.5s;
+}
+
+#mob-menu.is-active {
+    left: 0;
+}
+
+
+#back_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.6);
+    z-index: 10;
 }
 
 .logo {
@@ -342,6 +375,10 @@ body {
     border-radius: 30px;
 }
 
+.button_login_register{
+    width: 260px !important;
+}
+
 #login {
     width: 115px;
     background-color: @color_purple;
@@ -349,7 +386,7 @@ body {
 
 #register {
     width: 115px;
-    background-color: @color_bg;
+    background-color: transparent;
 }
 
 #main_page {
