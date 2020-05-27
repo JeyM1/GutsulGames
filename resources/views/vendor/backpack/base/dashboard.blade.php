@@ -22,13 +22,12 @@
       ],
     ])->onlyHere(),
     Widget::add([
-      'type'       => 'card',
-      // 'wrapper' => ['class' => 'col-sm-6 col-md-4'], // optional
-      'class'   => 'card bg-danger text-white', // optional
+      'type'       => 'chart',
+      'controller' => \App\Http\Controllers\Admin\Charts\DevelopersTopChartController::class,
       'content' => [
-          'header' => 'Внимание, внимание!', // optional
-          'body'   => '<br><br><br><br><h2 class="text-center">Андрей пидор!</h2><br><br><br><br>',
-      ]
+          'header' => 'Топ розробників ігор', 
+          'body'   => 'Розробники які виклали найбільше ігр у сервісі.<br><br>',
+      ],
     ])->onlyHere(),
   ]);
 

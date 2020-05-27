@@ -26,6 +26,8 @@ class UserActivityChartController extends ChartController
                 $labels[] = $days_backwards.' день назад';
             } else if ($days_backwards == 0) {
                 $labels[] = 'cьогодні';
+            } else if ($days_backwards < 5) {
+                $labels[] = $days_backwards.' дні тому';
             } else {
                 $labels[] = $days_backwards.' днів тому';
             }
@@ -35,7 +37,7 @@ class UserActivityChartController extends ChartController
         $this->chart->load(backpack_url('charts/user-activity'));
 
         $this->chart->minimalist(false);
-        $this->chart->displayLegend(false);
+        $this->chart->displayLegend(true);
     }
 
     /**
