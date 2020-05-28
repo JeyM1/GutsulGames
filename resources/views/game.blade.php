@@ -21,7 +21,7 @@
                             <img class="box2_image" src="{{ $game->image_path ?? "/images/games/noimage.png"  }}">
                         </div>
                         <div class="d-flex justify-content-start flex-column full_width">
-                            <p class="main_text padding_left_10 text_align_left text_purple font_25">
+                            <p class="main_text padding_left_10 text-center text-md-left text_purple font_25 display-2">
                                 {{ $game->name }}
                             </p>
                             <div class="main_text padding_left_10 text_align_left font_17 full_width">
@@ -55,7 +55,7 @@
                             <p class="main_text padding_left_10 text_align_left font_20">
                                 <span class="text_purple">ЦІНА:</span> {{ $game->price }} ₴
                             </p>
-                            <div class="d-flex justify-content-start padding_left_10">
+                            <div class="d-flex justify-content-start padding_left_10 justify-content-center justify-content-lg-start">
                                 @guest
                                     <a class="button_main button_buy font_20" href="{{ route('register') }}">Зареєструйтеся та грайте!</a>
                                 @else
