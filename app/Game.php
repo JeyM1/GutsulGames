@@ -81,15 +81,13 @@ class Game extends Model
         
 
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
-        
-        // TODO if folder not empty - delete old zip
 
         if($isgameonline) {
             $fl = $this->attributes[$attribute_name];
-            $zipfilename = public_path("games/$fl");
+            $zipfilename = env('IS_ON_SERVER_WITHOUT_PUBLIC_FOLDER') ? base_path("games/$fl") : public_path("games/$fl");
             $zip = new ZipArchive();
             $zip->open($zipfilename);
-            $zip->extractTo(public_path("$disk/$destination_path").'/Build');
+            $zip->extractTo(env('IS_ON_SERVER_WITHOUT_PUBLIC_FOLDER') ? base_path("$disk/$destination_path").'/Build' : public_path("$disk/$destination_path").'/Build');
             $zip->close();
         }
     }

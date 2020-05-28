@@ -67,12 +67,12 @@ return [
 
         'games' => [
             'driver' => 'local',
-            'root' => public_path('/games'),
+            'root' => env('IS_ON_SERVER_WITHOUT_PUBLIC_FOLDER') ? base_path('/games') : public_path('/games'),
         ],
 
         'games_images' => [
             'driver' => 'local',
-            'root' => public_path('/images/games'),
+            'root' => env('IS_ON_SERVER_WITHOUT_PUBLIC_FOLDER') ? base_path('/images/games') : public_path('/images/games'),
         ],
 
     ],
