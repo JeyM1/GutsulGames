@@ -278,6 +278,9 @@ body {
   z-index: 10;
   transition: left 0.5s;
 }
+#mob-menu a:hover {
+  color: #9085E3;
+}
 #mob-menu.is-active {
   left: 0;
 }

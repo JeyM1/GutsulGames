@@ -102,8 +102,16 @@
         @else
             <hr class="line full_width">
             <a class="nav-link font_25_static" href="{{ route('users', Auth::user()->id) }}">
+                @if(Auth::user()->hasAdminRights())
+                    <sup>{{ Auth::user()->highestAdminRole()->name }}</sup>
+                @endif
                 {{ Auth::user()->name }}
             </a>
+            @if(Auth::user()->hasAdminRights())
+                <a class="nav-link font_25_static" href="{{ route('backpack.dashboard') }}">
+                    До адмін панелі
+                </a>
+            @endif
             <a class="nav-link font_25_static" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
