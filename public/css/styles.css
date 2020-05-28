@@ -7,8 +7,7 @@
   -webkit-box-shadow: 0 0 12px #1C1C1C !important;
 }
 a,
-a:visited,
-a:hover {
+a:visited {
   color: white;
   text-decoration: none !important;
 }
@@ -123,6 +122,9 @@ a:hover {
   .font_30 {
     font-size: 15px !important;
   }
+}
+.font_25_static {
+  font-size: 25px !important;
 }
 .font_35 {
   font-size: 35px !important;
@@ -250,6 +252,7 @@ body {
 .header {
   height: 78px !important;
   background-color: #454955 !important;
+  z-index: 11;
 }
 .header_links {
   width: 250px;
@@ -257,6 +260,29 @@ body {
 .header_links a {
   margin-top: 7px;
   font-size: 17px;
+}
+#mob-menu {
+  position: fixed;
+  width: 300px;
+  background-color: #3a3d47;
+  padding-top: 78px;
+  left: -100%;
+  top: 0;
+  height: 100vh;
+  z-index: 10;
+  transition: left 0.5s;
+}
+#mob-menu.is-active {
+  left: 0;
+}
+#back_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10;
 }
 .logo {
   font-size: 35px !important;
@@ -320,14 +346,28 @@ body {
   border: 2px solid #9085E3;
   padding: 5px 0 !important;
   border-radius: 30px;
+  outline: none !important;
+}
+.button_login_register {
+  width: 260px !important;
 }
 #login {
   width: 115px;
   background-color: #9085E3;
+  transition: background-color 0.2s;
+}
+#login:hover {
+  background-color: transparent;
+  color: white;
 }
 #register {
   width: 115px;
-  background-color: #454955;
+  background-color: #9085E3;
+  transition: background-color 0.2s;
+}
+#register:hover {
+  background-color: transparent;
+  color: white;
 }
 #main_page {
   display: flex;
@@ -347,6 +387,10 @@ body {
   width: 304px;
   padding: 15px 0 !important;
   border-radius: 50px;
+  transition: background-color 0.2s;
+}
+#main_page div a:hover {
+  background-color: #4E4EA9;
 }
 @media (max-width: 768px) {
   #main_page {
@@ -388,6 +432,11 @@ body {
 .button_filled {
   background-color: #9085E3;
   padding: 10px 50px !important;
+  transition: background-color 0.2s;
+}
+.button_filled:hover {
+  background-color: transparent;
+  color: #9085E3;
 }
 #why_us {
   font-size: 40px !important;
@@ -445,6 +494,10 @@ body {
   border-color: #FFE500;
   padding: 10px 50px !important;
   border-radius: 50px;
+  transition: background-color 0.2s;
+}
+.button_register:hover {
+  background-color: transparent;
 }
 .button_mail {
   text-align: left;
@@ -520,6 +573,7 @@ body {
 .button_search {
   background-color: transparent;
   border: none;
+  outline: none !important;
 }
 .login_bg {
   background-color: #454955;
@@ -592,6 +646,15 @@ input[type=checkbox]:checked:after {
 }
 .button_buy {
   padding: 5px 25px !important;
+  background-color: transparent;
+  color: white;
+  transition: background-color 0.2s;
+  outline: none;
+}
+.button_buy:hover {
+  background-color: #9085E3;
+  color: white;
+  outline: none;
 }
 .line {
   height: 1px;

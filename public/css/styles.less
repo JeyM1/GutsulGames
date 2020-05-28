@@ -13,7 +13,7 @@
 }
 
 
-a, a:visited, a:hover{
+a, a:visited {
     color: white;
     text-decoration: none !important;
 }
@@ -123,6 +123,7 @@ a, a:visited, a:hover{
     }
 }
 
+
 .font_static_26{
     font-size: 26px !important;
 }
@@ -137,6 +138,10 @@ a, a:visited, a:hover{
     @media (max-width: 576px) {
         font-size: 15px !important;
     }
+}
+
+.font_25_static{
+    font-size: 25px !important;
 }
 
 .font_35{
@@ -283,14 +288,42 @@ body {
 .header {
     height: 78px !important;
     background-color: @color_bg !important;
+    z-index: 11;
 }
 
-.header_links{
+.header_links {
     width: 250px;
     a {
         margin-top: 7px;
         font-size: 17px;
     }
+}
+
+#mob-menu {
+    position: fixed;
+    width: 300px;
+    background-color: darken(@color_bg, 5%);
+    padding-top: 78px;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    z-index: 10;
+    transition: left 0.5s;
+}
+
+#mob-menu.is-active {
+    left: 0;
+}
+
+
+#back_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,.6);
+    z-index: 10;
 }
 
 .logo {
@@ -340,16 +373,33 @@ body {
     border: 2px solid @color_purple;
     padding: 5px 0 !important;
     border-radius: 30px;
+    outline: none !important;
+}
+
+.button_login_register{
+    width: 260px !important;
 }
 
 #login {
     width: 115px;
     background-color: @color_purple;
+    transition: background-color 0.2s;
+}
+
+#login:hover{
+    background-color: transparent;
+    color: white;
 }
 
 #register {
     width: 115px;
-    background-color: @color_bg;
+    background-color: @color_purple;
+    transition: background-color 0.2s;
+}
+
+#register:hover{
+    background-color: transparent;
+    color: white;
 }
 
 #main_page {
@@ -370,6 +420,11 @@ body {
             width: 304px;
             padding: 15px 0 !important;
             border-radius: 50px;
+            transition: background-color 0.2s;
+        }
+
+        a:hover {
+            background-color: #4E4EA9;
         }
     }
 
@@ -416,6 +471,12 @@ body {
 .button_filled {
     background-color: @color_purple;
     padding: 10px 50px !important;
+    transition: background-color 0.2s;
+}
+
+.button_filled:hover {
+    background-color: transparent;
+    color: @color_purple;
 }
 
 #why_us {
@@ -458,6 +519,11 @@ body {
     border-color: #FFE500;
     padding: 10px 50px !important;
     border-radius: 50px;
+    transition: background-color 0.2s;
+}
+
+.button_register:hover{
+    background-color: transparent;
 }
 
 .button_mail {
@@ -543,6 +609,7 @@ body {
 .button_search {
     background-color: transparent;
     border: none;
+    outline: none !important;
 }
 
 .login_bg{
@@ -623,6 +690,16 @@ input[type=checkbox]:checked:after {
 
 .button_buy{
     padding: 5px 25px !important;
+    background-color: transparent;
+    color: white;
+    transition: background-color 0.2s;
+    outline: none;
+}
+
+.button_buy:hover{
+    background-color: @color_purple;
+    color: white;
+    outline: none;
 }
 
 .line{
