@@ -12,13 +12,18 @@
       var gameInstance = UnityLoader.instantiate("gameContainer",  "/games/online/" + {!! json_encode($game->id) !!} + "/Build/Build.json", {onProgress: UnityProgress});
     </script>
   </head>
-  <body>
+  <body style="background-color: #454955">
     <div class="webgl-content">
       <div id="gameContainer" style="width: 1280px; height: 720px"></div>
-      <div class="footer">
-        <div class="webgl-logo"></div>
-        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
-        <div class="title">{{ $game->name }}</div>
+      <div class="footer" style="display: flex; justify-content: space-between">
+        <div>
+          <a style="color: #FFE500; text-decoration: none; font-size: 28px" href="{{ route('main') }}">Gutsul Games</a>
+        </div>
+        <div>
+          <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+
+          <div class="title" style="color: white;">{{ $game->name }}</div>
+        </div>
       </div>
     </div>
   </body>
