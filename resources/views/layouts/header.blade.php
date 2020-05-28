@@ -109,6 +109,11 @@
                         <a class="dropdown-item" href="{{ route('users', Auth::user()->id) }}">
                             Мій профіль
                         </a>
+                        @if(Auth::user()->hasAdminRights())
+                        <a class="dropdown-item" href="{{ route('backpack.dashboard') }}">
+                            До адмін панелі
+                        </a>
+                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
