@@ -33,7 +33,6 @@ class GameCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        // TODO: game tags
         $this->crud->setColumns([
                                  ['name' => 'name', 'label' => 'Назва гри'],
                                  ['name' => 'price', 'label' => 'Ціна гри'],
@@ -143,6 +142,8 @@ class GameCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
+        
+        $this->crud->addColumn(['name' => 'id', 'type' => 'text', 'label' => 'ID гри'])->beforeColumn('name');
         $this->crud->addColumn(['name'      => 'image_path',
                                 'label'     => 'Обкладинка гри', 
                                 'type'      => 'image',

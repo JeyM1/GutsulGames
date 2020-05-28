@@ -119,5 +119,7 @@ class UserCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
+
+        $this->crud->addColumn(['name' => 'id', 'type' => 'text', 'label' => 'ID користувача'])->beforeColumn('name');
     }
 }

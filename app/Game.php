@@ -99,9 +99,11 @@ class Game extends Model
         parent::boot();
         static::deleting(function($obj) {
             Storage::disk('games_images')->delete(explode('/images/games', "$obj->image_path"));
-            $gamepath = explode('/', "$obj->game_path");
-            Storage::disk('games')->delete($obj->game_path);
-            Storage::disk('games')->deleteDirectory($gamepath[0].'/'.$gamepath[1]);
+            if($obj->game_path) {
+                $gamepath = explode('/', "$obj->game_path");
+                Storage::disk('games')->delete($obj->game_path);
+                Storage::disk('games')->deleteDirectory($gamepath[0].'/'.$gamepath[1]);
+            }
         });
     }
 }
