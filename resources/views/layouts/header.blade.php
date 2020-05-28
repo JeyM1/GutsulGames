@@ -102,6 +102,9 @@
                     </div>
                 @else
                     <a id="navbarDropdown" class="nav-link dropdown-toggle header_user_dropdown" href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        @if(Auth::user()->hasAdminRights())
+                            <sup>{{ Auth::user()->highestAdminRole()->name }}</sup>
+                        @endif
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
 
@@ -110,9 +113,9 @@
                             Мій профіль
                         </a>
                         @if(Auth::user()->hasAdminRights())
-                        <a class="dropdown-item" href="{{ route('backpack.dashboard') }}">
-                            До адмін панелі
-                        </a>
+                            <a class="dropdown-item" href="{{ route('backpack.dashboard') }}">
+                                До адмін панелі
+                            </a>
                         @endif
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();

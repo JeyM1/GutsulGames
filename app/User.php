@@ -61,4 +61,8 @@ class User extends Authenticatable
     public function hasAdminRights() {
         return ($this->roles->first() !== null);
     }
+
+    public function highestAdminRole() {
+        return $this->roles->sortByDesc('permissions')->first();
+    }
 }
