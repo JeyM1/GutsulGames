@@ -30,7 +30,8 @@ class GameRequest extends FormRequest
             'price' => 'required',
             'release_date' => 'required',
             'developer' => 'required',
-            'description' =>'required|min:5|max:2000'
+            'description' =>'required|min:5|max:2000',
+            'game_path' => 'mimes:zip'
         ];
     }
 

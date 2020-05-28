@@ -8,11 +8,11 @@
             <div class="content_block col-md-10 col-xs-12">
                 <div class="col-md-12 col-xs-12 d-flex flex-column flex-md-row justify_content_between_notimportent align-items-center flex-wrap padding_bottom_20 center_after_610px">
                     <a class="main_text font_static_20 margin_none" href="{{ route('catalog') }}">Повернутись до каталогу</a>
-                    <form class="form_search" action="">
+                    <form class="form_search" action="{{ route('catalog') }}">
                         <button class="button_search" type="submit">
                             <img src="/images/white_search.svg">
                         </button>
-                        <input type="text" placeholder="пошук...">
+                        <input id="search" type="text" name="search" placeholder="пошук...">
                     </form> 
                 </div>
                 <div class="container-fluid">

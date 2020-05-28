@@ -49,7 +49,7 @@ class GameController extends Controller
                     ->json("Forbidden", 403, ['message' => 'Ви не можете скачати гру якщо вона у Вас не придбана!', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
         }
 
-        /* Delete because unused anymore
+        /* 
         if($game->types->contains(Type::where('name', 'online')->first())) {
             // if this game can be played online, redirect to online version
             return redirect()->route('play', $game->id);
@@ -60,27 +60,14 @@ class GameController extends Controller
             return response()
                     ->json("Forbidden", 403, ['message' => $error_msg, 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
         }
-
-        if(!Storage::disk('games')->exists("/offline/$game->id/download/$game->name.zip")) {
-            // !REPLACE WARNING! -> upload game
-            // generating download file. In future replace this to uploading.
-            $allfiles = Storage::disk('games')->files("/offline/$game->id");
-            Storage::disk('games')->makeDirectory("/offline/$game->id/download");
-            
-            $zip = new \ZipArchive();
-            $zip->open(public_path("/games/offline/$game->id/download/$game->name.zip"), \ZipArchive::CREATE);
-            foreach ($allfiles as $file) {
-                $filename = explode('/', $file)[2];
-                $zip->addFile(public_path("games/$file"), "$game->name/$filename");
-            }
-            $zip->close();
+        $files = Storage::disk('games')->files("/offline/$game->id/");
+        if(!$files) {
+            $error_msg = "Нажаль, гра '$game->name' поки що недоступна для скачування, перевірте дату релізу!";
+            return response()
+                    ->json("Forbidden", 403, ['message' => $error_msg, 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
         }
 
-        //$file = public_path("games/offline/$game->id/download/$game->name.zip");
-        $file = "/offline/$game->id/download/$game->name.zip";
-        //notify()->success("Гра '$game->name' буде скачана на ваш комп'ютер!");
-        //return Storage::disk('games')->download($file, "$game->name.zip", ['location' => route('games', $game->id), 'refresh' => 0]);
+        $file = $files[0];
         return Storage::disk('games')->download($file);
-        //return redirect()->route('games', $game->id)->with(['success_notify' => "Гра '$game->name' буде скачана на ваш комп'ютер!"]);
     }
 }

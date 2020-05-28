@@ -22,7 +22,7 @@ class CheckIfAdmin
      */
     private function checkIfUserIsAdmin($user)
     {
-        return ($user->roles->first() !== null);
+        return $user->hasAdminRights();
         //return true;
     }
 

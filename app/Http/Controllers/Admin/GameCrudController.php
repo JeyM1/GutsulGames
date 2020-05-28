@@ -6,6 +6,8 @@ use App\Http\Requests\GameRequest;
 use App\Type;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
+use Illuminate\Support\Facades\Log;
+use ZipArchive;
 
 /**
  * Class GameCrudController
@@ -124,6 +126,13 @@ class GameCrudController extends CrudController
                                'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
         
         ]);
+        $this->crud->addField(['name'       => 'game_path',
+                               'type'       => 'upload', 
+                               'label'      => 'Файли гри у архіві .zip',
+                               'upload'    => true,
+                               'disk'      => 'games',
+                               ''
+        ]);
     }
 
     protected function setupUpdateOperation()
@@ -134,11 +143,6 @@ class GameCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
-        $this->crud->addField(['name'       => 'description',
-                               'type'       => 'tinymce', 
-                               'label'      => 'Опис гри', 
-                               //'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
-        ]);
         $this->crud->addColumn(['name'      => 'image_path',
                                 'label'     => 'Обкладинка гри', 
                                 'type'      => 'image',
@@ -146,37 +150,15 @@ class GameCrudController extends CrudController
                                 'width'  => '200px',
                                 //'disk'   => 'games_images'
         ]);
+        $this->crud->addColumn(['name'       => 'description',
+                               'type'       => 'markdown', 
+                               'label'      => 'Опис гри', 
+                               //'options'    => [ 'selector' => 'textarea.tinymce', 'plugins' => 'image,link,media,anchor', 'height' => 500 ]
+        ]);
+        $this->crud->addColumn(['name'      => 'game_path',
+                                'label'     => 'Путь до гри на сервері', 
+                                'type'      => 'text',
+                                'disk'   => 'games'
+        ]);
     }
-
-    /*public function store()
-    {
-        // do something before validation, before save, before everything; for example:
-        // $this->crud->addField(['type' => 'hidden', 'name' => 'author_id']);
-        // $this->crud->removeField('password_confirmation');
-
-        // Note: By default Backpack ONLY saves the inputs that were added onpage using Backpack fields.
-        // This is done by stripping the request of all inputs that do NOT match Backpack fields for this
-        // particular operation. This is an added security layer, to protect your database from malicious
-        // users who could theoretically add inputs using DeveloperTools or JavaScript. If you're not properly
-        // using $guarded or $fillable on your model, malicious inputs could get you into trouble.
-
-        // However, if you know you have proper $guarded or $fillable on your model, andyou want to manipulate 
-        // the request directly to add or remove request parameters, you can also do that.
-        // We have a config value you can set, either inside your operation in `config/backpack/crud.php` if
-        // you want it to apply to all CRUDs, or inside a particular CrudController:
-        // $this->crud->setOperationSetting('saveAllInputsExcept', ['_token', '_method', 'http_referrer', 'current_tab', 'save_action']);
-        // The above will make Backpack store all inputs EXCEPT for the ones it uses for various features.
-        // So you can manipulate the request and add any request variable you'd like.
-        // $this->crud->request->request->add(['author_id'=> backpack_user()->id]);
-        // $this->crud->request->request->remove('password_confirmation');
-        $isgameonline = collect($this->crud->getRequest()->request->get('types'))->contains(Type::where('name', 'online')->first());
-        $gameid = DB::select("SHOW TABLE STATUS LIKE 'games'")[0]->Auto_increment;
-        //$this->crud->request->request->add(['game_path' => "/"($game->types()->where('name', 'online')->first() ? "online" : "offline").$game->id]);
-        $this->crud->getRequest()->request->add(['game_path' => "/".$isgameonline ? "online" : "offline".$game->id]);
-        
-        Log::debug("Calling traitStore");
-        $response = $this->traitStore();
-        
-        return $response;
-    }*/
 }

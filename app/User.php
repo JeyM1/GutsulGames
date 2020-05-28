@@ -57,4 +57,8 @@ class User extends Authenticatable
         $gameuser->user_id = $this->id;
         $gameuser->save();
     }
+
+    public function hasAdminRights() {
+        return ($this->roles->first() !== null);
+    }
 }

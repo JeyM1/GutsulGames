@@ -18,4 +18,7 @@ Route::group([
     Route::crud('role', 'RoleCrudController');
     Route::crud('game', 'GameCrudController');
     Route::crud('user', 'UserCrudController');
+    Route::get('charts/user-activity', 'Charts\UserActivityChartController@response')->name('charts.user-activity.index');
+    Route::get('charts/game-types-pie', 'Charts\GameTypesPieChartController@response')->name('charts.game-types-pie.index');
+    Route::get('charts/developers-top', 'Charts\DevelopersTopChartController@response')->name('charts.developers-top.index');
 }); // this should be the absolute last line of this file

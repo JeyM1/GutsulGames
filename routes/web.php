@@ -23,6 +23,10 @@ Route::get('/catalog', 'MainController@catalog')->name('catalog');
 Route::get('/users/{user}', 'MainController@users')->name('users');
 Route::get('/games/{gameid}', 'MainController@games')->name('games');
 
+/* Subscribe routes */
+Route::get('/subscribe', 'MainController@games')->name('games');
+Route::get('/unsubscribe/{eid}', 'MainController@games')->name('games');
+
 /* Cart routes */
 Route::get('/checkout', 'CartController@checkout')->name('checkout');
 Route::get('/checkout/confirm', 'CartController@confirm_checkout')->name('confirm');
