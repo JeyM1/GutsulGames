@@ -78,11 +78,11 @@ class Game extends Model
         $subfolder = $isgameonline ? "online" : "offline";
         
         $destination_path = "$subfolder/$gameid";
-        
 
         $this->uploadFileToDisk($value, $attribute_name, $disk, $destination_path);
 
         if($isgameonline) {
+            Log::debug('unpacking file');
             $fl = $this->attributes[$attribute_name];
             $zipfilename = env('IS_ON_SERVER_WITHOUT_PUBLIC_FOLDER') ? base_path("games/$fl") : public_path("games/$fl");
             $zip = new ZipArchive();

@@ -346,6 +346,9 @@ body {
   background-color: #454955 !important;
   top: 70% !important;
 }
+.header_dropdown a {
+  color: white;
+}
 .button_main {
   display: inline-block;
   text-align: center;
