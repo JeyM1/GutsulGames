@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid footer">
     <div class="row bg_dark justify-content-center">
         <div class="content_block col-md-10 col-xs-12">
             <div class="container-fluid">

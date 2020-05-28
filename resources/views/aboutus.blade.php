@@ -37,7 +37,7 @@
         <div class="content_block col-md-10 col-xs-12">
             <p class="main_text font_25 margin_none">
                 З будь-яких питань, ви завжди можете звернутися в тех. підтримку
-                на пошту <a class="text_purple" href="">support@GutsulGames.gmail.com</a>
+                на пошту <a class="text_purple" href="mailto:gutsulgames@gmail.com">GutsulGames@gmail.com</a>
             </p>
         </div>
     </div>
