@@ -152,7 +152,7 @@
                 <p class="text_yellow main_text font_30">
                     ПІДПИСУЙСЯ НА НАШІ НОВИНИ ТА БУДЬ У КУРСІ СПЕЦІАЛЬНИХ ПРОПОЗИЦІЙ
                 </p>
-                <form class="main_page_form" action="">
+                <form class="main_page_form" action="{{ route('subscribe') }}">
                     <div class="text_yellow d-flex justify-content-center padding_bottom_20">
                         <input id="email" type="email" class="main_page_input" name="email" placeholder="Електронна пошта...">
                     </div>

@@ -24,8 +24,8 @@ Route::get('/users/{user}', 'MainController@users')->name('users');
 Route::get('/games/{gameid}', 'MainController@games')->name('games');
 
 /* Subscribe routes */
-Route::get('/subscribe', 'MainController@games')->name('games');
-Route::get('/unsubscribe/{eid}', 'MainController@games')->name('games');
+Route::get('/subscribe', 'SubscribeController@subscribe')->name('subscribe');
+Route::get('/unsubscribe', 'SubscribeController@unsubscribe')->name('unsubscribe');
 
 /* Cart routes */
 Route::get('/checkout', 'CartController@checkout')->name('checkout');
