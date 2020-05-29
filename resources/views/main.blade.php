@@ -88,7 +88,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center padding_bottom_30">
-                        <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'bestsellers']) }}">Більше</a>
+                        <a class="button_main button_filled font_25" href="{{ route('catalog', ['search' => 'bestseller']) }}">Більше</a>
                     </div>
                 @else
                     <h1 class="text_white">Currently no games here!</h1>
