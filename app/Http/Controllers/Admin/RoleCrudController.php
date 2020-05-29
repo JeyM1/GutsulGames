@@ -39,7 +39,7 @@ class RoleCrudController extends CrudController
     {
         $this->crud->setValidation(RoleRequest::class);
 
-        $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Назва гри']);
+        $this->crud->addField(['name' => 'name', 'type' => 'text', 'label' => 'Назва ролі']);
         $this->crud->addField(['name' => 'permissions', 'type' => 'number', 'label' => 'Повноваження']);
     }
 
