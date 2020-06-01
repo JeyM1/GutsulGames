@@ -486,6 +486,7 @@ body {
 }
 .gametag {
   font-size: 14px !important;
+  display: inline-block;
   border: 1px solid #9085E3;
   border-radius: 25px;
   padding: 2px 10px;

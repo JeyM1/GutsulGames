@@ -47,7 +47,7 @@
                                 <p class="main_text padding_left_10 text_align_left font_20">
                                     <span class="text_purple">Теги:</span> 
                                     @foreach ($game->types->take(10) as $tag)
-                                        <a class="gametag mr-1" href="{{ route('catalog', ['search' => $tag->name]) }}">{{ $tag->name }}</a>
+                                        <a class="gametag m-1" href="{{ route('catalog', ['search' => $tag->name]) }}">{{ $tag->name }}</a>
                                     @endforeach 
                                 </p>
                             @endif
