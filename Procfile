@@ -1,4 +1,2 @@
-web: composer install
-web: php artisan backpack:install
-web: php artisan migrate
+worker: php artisan backpack:install
 web: vendor/bin/heroku-php-apache2 public/
